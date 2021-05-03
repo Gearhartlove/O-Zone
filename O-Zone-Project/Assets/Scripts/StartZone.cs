@@ -9,6 +9,7 @@ public class StartZone : MonoBehaviour
     [SerializeField] int PInZone = 0;
     [SerializeField] Slider slider;
     bool InZone = false;
+    //increment and decrement the progress bar
     private float increment_value = 0.5f;
     private float decrement_value = 1.5f;
 
@@ -18,6 +19,7 @@ public class StartZone : MonoBehaviour
        {
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
+            if (slider.value == 1f) Debug.Log("start game");
             //if bar = 100%, start the game 
        }
        else
