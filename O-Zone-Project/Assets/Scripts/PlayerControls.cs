@@ -50,4 +50,9 @@ public class PlayerControls : MonoBehaviour
     {
 
     }
+
+    private void OnTempAction() //delete after testing
+    {
+        Debug.Log("temp");
+    }
 }

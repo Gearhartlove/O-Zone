@@ -89,6 +89,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TempAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc252e7f-5e6e-4fd9-9efd-1acd2fa2bc0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -190,6 +198,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d610220-2c69-4d26-9d88-1b3425a9372e"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TempAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -207,6 +226,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControlsMap_SouthButton = m_PlayerControlsMap.FindAction("SouthButton", throwIfNotFound: true);
         m_PlayerControlsMap_LeftTrigger = m_PlayerControlsMap.FindAction("LeftTrigger", throwIfNotFound: true);
         m_PlayerControlsMap_RightTrigger = m_PlayerControlsMap.FindAction("RightTrigger", throwIfNotFound: true);
+        m_PlayerControlsMap_TempAction = m_PlayerControlsMap.FindAction("TempAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -265,6 +285,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControlsMap_SouthButton;
     private readonly InputAction m_PlayerControlsMap_LeftTrigger;
     private readonly InputAction m_PlayerControlsMap_RightTrigger;
+    private readonly InputAction m_PlayerControlsMap_TempAction;
     public struct PlayerControlsMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -278,6 +299,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @SouthButton => m_Wrapper.m_PlayerControlsMap_SouthButton;
         public InputAction @LeftTrigger => m_Wrapper.m_PlayerControlsMap_LeftTrigger;
         public InputAction @RightTrigger => m_Wrapper.m_PlayerControlsMap_RightTrigger;
+        public InputAction @TempAction => m_Wrapper.m_PlayerControlsMap_TempAction;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControlsMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -314,6 +336,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @RightTrigger.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightTrigger;
+                @TempAction.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
+                @TempAction.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
+                @TempAction.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
             }
             m_Wrapper.m_PlayerControlsMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -345,6 +370,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @RightTrigger.started += instance.OnRightTrigger;
                 @RightTrigger.performed += instance.OnRightTrigger;
                 @RightTrigger.canceled += instance.OnRightTrigger;
+                @TempAction.started += instance.OnTempAction;
+                @TempAction.performed += instance.OnTempAction;
+                @TempAction.canceled += instance.OnTempAction;
             }
         }
     }
@@ -360,5 +388,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnSouthButton(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
+        void OnTempAction(InputAction.CallbackContext context);
     }
 }

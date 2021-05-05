@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "TempAction",
+                    "type": "Button",
+                    "id": "bc252e7f-5e6e-4fd9-9efd-1acd2fa2bc0e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -175,6 +183,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d610220-2c69-4d26-9d88-1b3425a9372e",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TempAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

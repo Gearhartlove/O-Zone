@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class StartZone : MonoBehaviour
 {
-    [SerializeField] int PCount = 1; //temp till game manager exists
-    [SerializeField] int PInZone = 0;
     [SerializeField] Slider slider;
+    [SerializeField] GameManager GM;
     bool InZone = false;
+    int PInZone = 0;
     //increment and decrement the progress bar
     private float increment_value = 0.5f;
     private float decrement_value = 1.5f;
 
     private void Update()
     {
-       if (InZone && PInZone == PCount)
+       if (InZone && PInZone == GM.GetPM.PCount)
        {
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
-            if (slider.value == 1f) Debug.Log("start game");
-            //if bar = 100%, start the game 
+            if (slider.value == slider.maxValue)
+                Debug.Log("start game");
        }
        else
        {
