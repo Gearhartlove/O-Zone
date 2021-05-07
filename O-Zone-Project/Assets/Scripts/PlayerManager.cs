@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     //FIELDS
-    //Private
+    //Privatef
     //player array
     [SerializeField] GameObject[] PArray;
     PlayerInputManager PInputManager;

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Manager.Game_Manager;
 
 public class StartZone : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    [SerializeField] GameManager GM;
     bool InZone = false;
     int PInZone = 0;
     //increment and decrement the progress bar
@@ -15,7 +15,7 @@ public class StartZone : MonoBehaviour
 
     private void Update()
     {
-       if (InZone && PInZone == GM.GetPM.PCount)
+       if (InZone && PInZone == GetPM.PCount)
        {
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
