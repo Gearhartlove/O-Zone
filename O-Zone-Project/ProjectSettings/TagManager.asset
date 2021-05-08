@@ -53,3 +53,6 @@ TagManager:
   - name: Objects
     uniqueID: 2747117017
     locked: 0
+  - name: Water Overlay
+    uniqueID: 332666589
+    locked: 0
