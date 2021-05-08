@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3c5654fb50b4409af95aaa91512644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBursting: 0
+  BurstLength: 1
 --- !u!114 &3383888405562523817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +187,7 @@ MonoBehaviour:
   RotationSpeed: 8
   MovementSpeed: 2000
   MaximumSpeed: 20
-  burstSpeed: 80000
+  burstSpeed: 35000
   InAir: 0
   AttackCooldownTime: 0
   AttackCooldown: 0

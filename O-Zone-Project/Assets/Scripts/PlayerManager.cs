@@ -29,6 +29,11 @@ public class PlayerManager : MonoBehaviour
         pCount++;
     }
 
+    //dissable players from joining
 
+    //dissable a player's controls
+
+
+    //remove players from the array
     
 }

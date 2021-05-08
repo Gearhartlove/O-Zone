@@ -16,11 +16,25 @@ public class PlayerControls : MonoBehaviour
         Debug.Log("stop bursting " + Time.time);
     }
     //--------------------------------------------
+    //defensive move to protect player
+    bool isDefensive = false;
+    [SerializeField] bool IsDefensive
+    {
+        get { return isDefensive; }
+        set { isDefensive = value; }
+    }
+
+    //attack --> host gameobject --> access their PlayerCombat.Stun()
+     
+
+
+    //--------------------------------------------
+    
 
     private void Start()
     {
-        PS = gameObject.GetComponent<PlayerStats>();
-        PC = gameObject.GetComponent<PlayerCombat>();
+        PS = GetComponent<PlayerStats>();
+        PC = GetComponent<PlayerCombat>();
     }
 
     private void OnWestButton()
@@ -29,13 +43,13 @@ public class PlayerControls : MonoBehaviour
 
         //BURST : fast set movement in water, small pause afterwords
         if (!isBursting)
-        if (!PS.GetInAir || !PS.GetInWaterBooster)
+        //if (!PS.GetInAir || !PS.GetInWaterBooster)
         {
             isBursting = true;
             Invoke("StopBursting", BurstLength);
             GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed * Time.deltaTime);
 
-            //bool that is active while bursting, set to false when inactive
+            
         }
     }
 
