@@ -10,7 +10,7 @@ public class AirCollider : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
         }
-        else if (collision.tag == "Projectile")
+        else if (collision.tag == "Projectile") { }
 
         collision.attachedRigidbody.gravityScale = 4.5f;
     }
@@ -21,7 +21,7 @@ public class AirCollider : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
         }
-        else if (collision.tag == "Projectile")
+        else if (collision.tag == "Projectile") { }
 
         collision.attachedRigidbody.gravityScale = 0;
     }
