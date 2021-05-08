@@ -8,7 +8,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float RotationSpeed = 8f;
     [SerializeField] float MovementSpeed = 8f;
     [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
-    [SerializeField] float LinearDrag = 2f;
+    [SerializeField] bool isMoving = false;
+    public bool IsMoving
+        {
+            get { return isMoving; }
+            set { isMoving = value; } 
+        }
+
     //SceneLogic
     int round_win_count;
     [SerializeField] bool InWater = false;
@@ -28,8 +34,6 @@ public class PlayerStats : MonoBehaviour
 
     //movement
     public float GetMovementSpeed => MovementSpeed;
-    public float GetLinearDrag => LinearDrag;
-    public void SetLinearDrag(float val) { LinearDrag = val; }
 
     //terrain
     public bool GetInWater => InWater;
