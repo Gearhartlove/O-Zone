@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerComponents;
-using static Player.PlayerCombat;
 
 public class PlayerControls : MonoBehaviour
 {
     PlayerStats PS;
+    PlayerCombat PC;
+
+    //move into PlayerStats after
+    [SerializeField] bool isBursting = false;
+    [SerializeField] float BurstLength = 1f;
+    public void StopBursting() { isBursting = false;
+        Debug.Log("stop bursting " + Time.time);
+    }
+    //--------------------------------------------
 
     private void Start()
     {
@@ -16,15 +24,18 @@ public class PlayerControls : MonoBehaviour
 
     private void OnWestButton()
     {
+        
+
         //BURST : fast set movement in water, small pause afterwords
-        //if (!PS.GetInAir || !PS.GetInWaterBooster)
-        //{
+        if (!isBursting)
+        if (!PS.GetInAir || !PS.GetInWaterBooster)
+        {
+            isBursting = true;
+            Invoke("StopBursting", BurstLength);
             GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed * Time.deltaTime);
 
-
-        //}
-        
-        Debug.Log("Burst");
+            //bool that is active while bursting, set to false when inactive
+        }
     }
 
     private void OnEastButton()
@@ -39,7 +50,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnSouthButton()
     {
-       // Player.PlayerCombat.Attack();
+        PC.Attack();
     }
 
     private void OnLeftTrigger()
