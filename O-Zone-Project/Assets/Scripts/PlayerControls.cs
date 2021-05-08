@@ -51,7 +51,8 @@ public class PlayerControls : MonoBehaviour
 
     private void OnLeftStick(InputValue value)
     {
-        Vector2 input = value.Get<Vector2>();
+        Vector2 input = value.Get<Vector2>().normalized;
+        Debug.Log("Normalize:" + input);
         Debug.Log(input);
         float CurrentSpeed = GetPRigidBody.velocity.magnitude;
 
