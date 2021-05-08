@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerComponents;
-using Player;
+//using static Player.PlayerCombat;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnSouthButton()
     {
-
+        //PlayerCombat.Melee;
     }
 
     private void OnLeftTrigger()
@@ -79,7 +79,7 @@ public class PlayerControls : MonoBehaviour
     private void Update()
     {
         //MOVE the player
-        if (PS.GetInWater && PS.IsMoving)
+        if (!PS.GetInAir && PS.IsMoving)
         {
             
             //If the player is going faster than the desired maximum speed,

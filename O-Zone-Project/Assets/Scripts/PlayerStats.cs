@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
 
     //SceneLogic
     int round_win_count;
-    [SerializeField] bool InWater = false;
+    [SerializeField] bool InAir = false;
     
 
     public void RoundWin() { round_win_count++; }
@@ -36,10 +36,10 @@ public class PlayerStats : MonoBehaviour
     public float GetMovementSpeed => MovementSpeed;
 
     //terrain
-    public bool GetInWater => InWater;
+    public bool GetInAir => InAir;
 
-    public void SetInWater(bool change)
+    public void SetInAir(bool change)
     {
-        InWater = change;
+        InAir = change;
     }
 }
