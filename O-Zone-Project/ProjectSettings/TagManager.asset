@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2832945129
+    locked: 0
+  - name: Objects
+    uniqueID: 2910185051
     locked: 0
