@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Player.PlayerComponents;
-//using static Player.PlayerCombat;
+using static Player.PlayerCombat;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -39,7 +39,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnSouthButton()
     {
-        //PlayerCombat.Attack;
+       // Player.PlayerCombat.Attack();
     }
 
     private void OnLeftTrigger()

@@ -55,4 +55,16 @@ public class PlayerStats : MonoBehaviour
     {
         InAir = change;
     }
+
+    // Combat Values
+    [SerializeField] float AttackCooldownTime;
+    [SerializeField] bool AttackCooldown = false;
+    [SerializeField] int Health = 2;
+
+    public bool GetAttackCooldown => AttackCooldown;
+
+    public void SetAttackCooldown(bool change)
+    {
+        AttackCooldown = change;
+    }
 }
