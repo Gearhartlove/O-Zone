@@ -20,6 +20,7 @@ public class PlayerControls : MonoBehaviour
     private void Start()
     {
         PS = gameObject.GetComponent<PlayerStats>();
+        PC = gameObject.GetComponent<PlayerCombat>();
     }
 
     private void OnWestButton()
