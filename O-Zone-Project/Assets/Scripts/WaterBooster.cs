@@ -27,13 +27,13 @@ public class WaterBooster : MonoBehaviour
         Rigidbody2D collisionRigidbody = collision.attachedRigidbody;
         if (collisionRigidbody)
         {
-            boostVector = new Vector2(collisionRigidbody.velocity.x, boostVector.y);
+            Vector2 appliedBoost = new Vector2(collisionRigidbody.velocity.x * boostVector.x, boostVector.y * collisionRigidbody.velocity.y);
             if (collisionRigidbody.velocity.y > minVelocity)
             {
-                collisionRigidbody.AddForce(boostVector);
+                collisionRigidbody.AddForce(appliedBoost);
             } else if (collisionRigidbody.velocity.y < -minVelocity)
             {
-                collisionRigidbody.AddForce(-boostVector / 2);
+                collisionRigidbody.AddForce(-appliedBoost / 2);
             }
         }
     }

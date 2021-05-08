@@ -11,7 +11,7 @@ public class AirCollider : MonoBehaviour
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
         }
 
-        collision.attachedRigidbody.gravityScale = 5;
+        collision.attachedRigidbody.gravityScale = 4.5f;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

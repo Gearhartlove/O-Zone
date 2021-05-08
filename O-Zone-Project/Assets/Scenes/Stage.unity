@@ -1963,8 +1963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca457db2aab91b41b210ebca04ca5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVelocity: 6
-  boostVector: {x: 0, y: 100}
+  minVelocity: 5
+  boostVector: {x: 10, y: 22}
 --- !u!61 &1396821962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2080,7 +2080,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1834541405}
   - component: {fileID: 1834541404}
-  - component: {fileID: 1834541403}
   - component: {fileID: 1834541402}
   m_Layer: 0
   m_Name: Water Camera
@@ -2121,14 +2120,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1834541403
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834541401}
-  m_Enabled: 1
 --- !u!20 &1834541404
 Camera:
   m_ObjectHideFlags: 0
