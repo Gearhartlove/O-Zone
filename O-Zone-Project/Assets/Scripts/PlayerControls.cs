@@ -58,7 +58,7 @@ public class PlayerControls : MonoBehaviour
         if (input.sqrMagnitude > 0.1f)
             GetPTransform.rotation = Quaternion.Euler(0, 0, angle);
 
-        //move the player if in water
+        //move the player if in water;
         if (PS.GetInWater)
         {
             GetPRigidBody.AddForce(transform.up * PS.GetMovementSpeed);
