@@ -8,13 +8,25 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float RotationSpeed = 8f;
     [SerializeField] float MovementSpeed = 8f;
     [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
-    [SerializeField] bool isMoving = false;
+    bool isMoving = false;
     public bool IsMoving
         {
             get { return isMoving; }
             set { isMoving = value; } 
         }
 
+    [SerializeField] float burstSpeed = 80000;
+    public float BurstSpeed
+    {
+        get {return burstSpeed; }
+    }
+    private bool inWaterBooster = false;
+    public bool InWaterBooster
+    {
+        get { return inWaterBooster; }
+        set { inWaterBooster = value; }
+    }
+        
     //SceneLogic
     int round_win_count;
     [SerializeField] bool InAir = false;
@@ -34,6 +46,7 @@ public class PlayerStats : MonoBehaviour
 
     //movement
     public float GetMovementSpeed => MovementSpeed;
+    public bool GetInWaterBooster => InWaterBooster;
 
     //terrain
     public bool GetInAir => InAir;

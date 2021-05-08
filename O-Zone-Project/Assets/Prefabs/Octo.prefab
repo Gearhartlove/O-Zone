@@ -184,7 +184,7 @@ MonoBehaviour:
   RotationSpeed: 8
   MovementSpeed: 2000
   MaximumSpeed: 20
-  isMoving: 0
+  burstSpeed: 35000
   InAir: 0
 --- !u!114 &7242350220973229653
 MonoBehaviour:

@@ -16,7 +16,15 @@ public class PlayerControls : MonoBehaviour
 
     private void OnWestButton()
     {
+        //BURST : fast set movement in water, small pause afterwords
+        //if (!PS.GetInAir || !PS.GetInWaterBooster)
+        //{
+            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed * Time.deltaTime);
 
+
+        //}
+        
+        Debug.Log("Burst");
     }
 
     private void OnEastButton()
@@ -31,7 +39,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnSouthButton()
     {
-        //PlayerCombat.Melee;
+        //PlayerCombat.Attack;
     }
 
     private void OnLeftTrigger()
