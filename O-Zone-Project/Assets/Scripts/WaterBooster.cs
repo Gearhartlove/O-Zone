@@ -22,17 +22,18 @@ public class WaterBooster : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Rigidbody2D collisionRigidbody = collision.attachedRigidbody;
         if (collisionRigidbody)
         {
+            boostVector = new Vector2(collisionRigidbody.velocity.x, boostVector.y);
             if (collisionRigidbody.velocity.y > minVelocity)
             {
                 collisionRigidbody.AddForce(boostVector);
             } else if (collisionRigidbody.velocity.y < -minVelocity)
             {
-                collisionRigidbody.AddRelativeForce(-boostVector);
+                collisionRigidbody.AddForce(-boostVector / 2);
             }
         }
     }
