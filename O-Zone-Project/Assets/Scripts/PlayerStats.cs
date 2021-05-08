@@ -67,4 +67,19 @@ public class PlayerStats : MonoBehaviour
     {
         AttackCooldown = change;
     }
+
+    public void Damage(int damageAmount)
+    {
+        GetComponent<Animator>().SetTrigger("Damaged");
+        Health -= damageAmount;
+        if (Health <= 0)
+        {
+            KillPlayer();
+        }
+    }
+
+    public void KillPlayer()
+    {
+        // Kill inputs
+    }
 }

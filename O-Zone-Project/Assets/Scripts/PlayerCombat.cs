@@ -19,14 +19,14 @@ public class PlayerCombat : MonoBehaviour
         {
             return;
         }
-
+        GetPAnimator.SetTrigger("Attack");
         GetPStats.SetAttackCooldown(true);
         Invoke("EndCooldown", 1f);
 
         Invoke("StartAttack", 0.1f);
     }
 
-    public static void EndCooldown()
+    public void EndCooldown()
     {
         GetPStats.SetAttackCooldown(false);
     }
@@ -40,6 +40,11 @@ public class PlayerCombat : MonoBehaviour
     public void StopAttack()
     {
         IsAttacking = false;
+    }
+
+    public bool GetIsAttacking()
+    {
+        return IsAttacking;
     }
 }
 
