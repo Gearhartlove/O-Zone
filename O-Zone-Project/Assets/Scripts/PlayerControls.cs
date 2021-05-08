@@ -51,21 +51,45 @@ public class PlayerControls : MonoBehaviour
 
     private void OnLeftStick(InputValue value)
     {
-        //rotate the Player
         Vector2 input = value.Get<Vector2>();
+        Debug.Log(input);
+        float CurrentSpeed = GetPRigidBody.velocity.magnitude;
 
+        //ROTATE the Player
         float angle = PS.GetAngle(Vector2.zero, input);
-        if (input.sqrMagnitude > 0.1f)
+        angle -= 90f;
+        //if (input.sqrMagnitude > 0.1f)
+        //{
+        //    //avoid jerking back to rotation 0
             GetPTransform.rotation = Quaternion.Euler(0, 0, angle);
+        //    //turn off linear drag
+        //   // GetPRigidBody.drag = 0.2f;
+        //}
+        //else
+        //{
+        //    //reset linear drag
+        //    Debug.Log("resetting");
+        //    //GetPRigidBody.drag = PS.GetLinearDrag;
+        //}
 
-        //move the player if in water
+        //MOVE the player
         if (PS.GetInWater)
         {
-            GetPRigidBody.AddForce(transform.up * PS.GetMovementSpeed);
+            //If the player is going faster than the desired maximum speed,
+            //add force in the opposite direction to slow down the player
+            //if (CurrentSpeed > PS.GetMaxSpeed)
+            //{
+            //    //difference between current and maximum speed
+            //    float SpeedDifference = (CurrentSpeed - PS.GetMaxSpeed);
+            //    GetPRigidBody.AddRelativeForce
+            //        (Vector2.down * (SpeedDifference) * Time.deltaTime);
+            //}
+            //else //speed up the player 
+            //{
+                GetPRigidBody.AddRelativeForce
+                    (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
+            //}
         }
-        //Vector3 move = input; //vector 2 to vector 3
-        //GetPTransform.position += move * PS.GetMovementSpeed * Time.deltaTime;
-
     }
 
     private void OnStart()

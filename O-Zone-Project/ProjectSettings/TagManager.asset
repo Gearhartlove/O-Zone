@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Projectile
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -43,14 +42,14 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3400874919
+    uniqueID: 2511757861
     locked: 0
   - name: Water
-    uniqueID: 2095588395
+    uniqueID: 3705152205
     locked: 0
   - name: Ground
-    uniqueID: 2832945129
+    uniqueID: 4123782263
     locked: 0
   - name: Objects
-    uniqueID: 2910185051
+    uniqueID: 2747117017
     locked: 0

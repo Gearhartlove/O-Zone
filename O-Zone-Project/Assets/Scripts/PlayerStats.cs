@@ -7,16 +7,18 @@ public class PlayerStats : MonoBehaviour
     //Movement + Physics values
     [SerializeField] float RotationSpeed = 8f;
     [SerializeField] float MovementSpeed = 8f;
+    [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
+    [SerializeField] float LinearDrag = 2f;
     //SceneLogic
     int round_win_count;
-    bool InWater = false;
+    [SerializeField] bool InWater = false;
     
 
     public void RoundWin() { round_win_count++; }
 
     //rotation
     public float GetRotationSpeed => RotationSpeed;
-    public float GetMovementSpeed => MovementSpeed;
+    public float GetMaxSpeed => MaximumSpeed;
     public float GetAngle(Vector2 me, Vector2 target)
     {
         //math for rotating spoon
@@ -25,7 +27,9 @@ public class PlayerStats : MonoBehaviour
     }
 
     //movement
-    
+    public float GetMovementSpeed => MovementSpeed;
+    public float GetLinearDrag => LinearDrag;
+    public void SetLinearDrag(float val) { LinearDrag = val; }
 
     //terrain
     public bool GetInWater => InWater;
