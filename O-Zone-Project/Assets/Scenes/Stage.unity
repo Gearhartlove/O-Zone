@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minVelocity: 5
-  boostVector: {x: 10, y: 22}
+  boostVector: {x: 18, y: 22}
 --- !u!61 &1396821962
 BoxCollider2D:
   m_ObjectHideFlags: 0

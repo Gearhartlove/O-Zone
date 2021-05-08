@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 271525153535706006}
   - component: {fileID: 7242350220973229653}
   - component: {fileID: 7264703428047922630}
+  - component: {fileID: 5234347621937462846}
   m_Layer: 0
   m_Name: Octo
   m_TagString: Player
@@ -184,7 +185,7 @@ MonoBehaviour:
   MovementSpeed: 2000
   MaximumSpeed: 20
   isMoving: 0
-  InWater: 1
+  InAir: 0
 --- !u!114 &7242350220973229653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000059604645, y: 0.014102757}
   m_Size: {x: 0.8147439, y: 1.0685893}
   m_Direction: 0
+--- !u!114 &5234347621937462846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702836810906472117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757b7a1e06999c649b02a0ce0d769c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7781591935191791938
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ namespace Player
         void Awake()
         {
             PControls = gameObject.GetComponent<PlayerControls>();
-            //PAnimator = gameObject.GetComponent<Animator>();
+            PAnimator = gameObject.GetComponent<Animator>();
             PStats = gameObject.GetComponent<PlayerStats>();
             PTransform = gameObject.transform;
             PGameObj = gameObject;
@@ -33,7 +33,7 @@ namespace Player
         public static Transform GetPTransform => PTransform;
         public static GameObject GetPGameObject => PGameObj;
         public static Rigidbody2D GetPRigidBody => PRigidBody;
-        //public static Animator GetPAnimator => PAnimator;
+        public static Animator GetPAnimator => PAnimator;
         public static PlayerStats GetPStats => PStats;
 
 
