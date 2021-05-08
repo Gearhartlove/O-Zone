@@ -23,7 +23,6 @@ public class Attack : MonoBehaviour
         {
             // MELEE ATTACK
             Hitbox.enabled = true;
-            GetComponent<Animator>().SetTrigger("Activate");
         } else
         {
             Hitbox.enabled = false;

@@ -31,7 +31,7 @@ public class PlayerControls : MonoBehaviour
     //--------------------------------------------
     
 
-    private void Start()
+    private void Awake()
     {
         PS = GetComponent<PlayerStats>();
         PC = GetComponent<PlayerCombat>();

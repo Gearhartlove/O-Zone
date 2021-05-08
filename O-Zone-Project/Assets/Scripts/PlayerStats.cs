@@ -46,6 +46,10 @@ public class PlayerStats : MonoBehaviour
 
     //movement
     public float GetMovementSpeed => MovementSpeed;
+    public void SetMovementSpeed(float speed)
+    {
+        MovementSpeed = speed;
+    }
     public bool GetInWaterBooster => InWaterBooster;
 
     //terrain
