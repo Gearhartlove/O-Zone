@@ -27,7 +27,6 @@ public class PlayerManager : MonoBehaviour
     {
         PArray[PCount] = player.gameObject;
         pCount++;
-        Debug.Log(PCount);
     }
 
 

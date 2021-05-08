@@ -16,7 +16,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnWestButton()
     {
-        Debug.Log("west");
+
     }
 
     private void OnEastButton()
@@ -68,8 +68,6 @@ public class PlayerControls : MonoBehaviour
         }
         else
         {
-            //reset linear drag
-            Debug.Log("resetting");
             //Playser is no longer moving
             PS.IsMoving = false;
         }
@@ -108,6 +106,6 @@ public class PlayerControls : MonoBehaviour
 
     private void OnTempAction() //delete after testing
     {
-        Debug.Log("temp");
+
     }
 }

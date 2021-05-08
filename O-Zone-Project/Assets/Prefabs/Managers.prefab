@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 6067038949543400811, guid: c0e2f9e655016455b88dce224ebc017b, type: 3}
+  m_PlayerPrefab: {fileID: 702836810906472117, guid: ab25f7ca75dc0514fbbc703cb03c7fc2, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UICanvas: {fileID: 0}
+  TilemapArray: []
+  CurrentTileMap: {fileID: 0}
+  TilemapChecker: 
 --- !u!114 &8404459156607049140
 MonoBehaviour:
   m_ObjectHideFlags: 0
