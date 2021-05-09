@@ -32,6 +32,7 @@ public class PlayerControls : MonoBehaviour
         {
             PS.IsBursting = true;
             GetPAnimator.SetTrigger("Big Swim");
+            GetComponent<ParticleSystem>().Play();
             PS.CallStopBursting();
             GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
         }

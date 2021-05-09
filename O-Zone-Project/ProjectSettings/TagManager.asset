@@ -48,11 +48,11 @@ TagManager:
   - name: Water
     uniqueID: 3705152205
     locked: 0
-  - name: Ground
-    uniqueID: 4123782263
-    locked: 0
   - name: Objects
     uniqueID: 2747117017
+    locked: 0
+  - name: Ground
+    uniqueID: 4123782263
     locked: 0
   - name: Water Overlay
     uniqueID: 332666589

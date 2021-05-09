@@ -7,7 +7,9 @@ public class PlayerCombat : MonoBehaviour
 {
     private bool IsAttacking = false;
     [SerializeField] private GameObject Explosion;
+    [SerializeField] private GameObject Fruit;
     [SerializeField] private float SlowSpeed;
+    [SerializeField] private float ProjectileSpeed;
     private float StoredSpeed;
 
     private GameObject NewExplosion;
@@ -40,8 +42,19 @@ public class PlayerCombat : MonoBehaviour
 
     public void StartAttack()
     {
-        NewExplosion = Instantiate(Explosion, transform.GetChild(0).position, transform.rotation);
-        NewExplosion.GetComponent<Animator>().SetTrigger("Activate");
+        if (!GetPStats.GetInAir)
+        {
+            NewExplosion = Instantiate(Explosion, transform.GetChild(0).position, transform.rotation);
+            NewExplosion.GetComponent<Animator>().SetTrigger("Activate");
+        }
+        else
+        {
+            GameObject newFruit = Instantiate(Fruit, transform.GetChild(0).position, transform.rotation);
+            Vector2 ShootSpeed = new Vector2(0, ProjectileSpeed);
+            newFruit.GetComponent<Rigidbody2D>().AddRelativeForce(ShootSpeed);
+            newFruit.GetComponent<Fruit>().SetAttackingPlayer(transform.gameObject);
+        }
+        
         IsAttacking = true;
         Invoke("StopAttacking", .8f);
     }

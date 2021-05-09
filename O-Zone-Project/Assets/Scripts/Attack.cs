@@ -26,11 +26,6 @@ public class Attack : MonoBehaviour
         } else
         {
             Hitbox.enabled = false;
-            if (Combat.GetIsAttacking() && Stats.GetInAir)
-            {
-                // RANGED ATTACK
-
-            }
         }
     }
 
@@ -41,7 +36,7 @@ public class Attack : MonoBehaviour
             collision.GetComponent<PlayerStats>().Damage(AttackDamage);
         } else if (collision.CompareTag("Projectile"))
         {
-            // Destroy fruit
+            collision.GetComponent<Fruit>().DestroyFruit();
         }
     }
 }
