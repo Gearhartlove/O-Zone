@@ -20,9 +20,10 @@ public class AirCollider : MonoBehaviour
         if (collision.tag == "Player") 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
+            collision.attachedRigidbody.gravityScale = 0;
         }
-        else if (collision.tag == "Projectile") { }
-
-        collision.attachedRigidbody.gravityScale = 0;
+        else if (collision.tag == "Projectile") {
+            collision.attachedRigidbody.gravityScale = 0.3f;
+        }
     }
 }

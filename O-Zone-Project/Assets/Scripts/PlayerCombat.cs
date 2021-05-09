@@ -41,8 +41,6 @@ public class PlayerCombat : MonoBehaviour
             PC.GetPStats.SetMovementSpeed(SlowSpeed);
             Invoke("SpeedUp", 0.5f);
         }
-        
-        
     }
 
     public void EndCooldown()
