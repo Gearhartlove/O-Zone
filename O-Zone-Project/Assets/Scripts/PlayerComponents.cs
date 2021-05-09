@@ -6,12 +6,12 @@ namespace Player
 
     public class PlayerComponents : MonoBehaviour
     {
-        static PlayerControls PControls;
-        static Animator PAnimator;
-        static PlayerStats PStats;
-        static Transform PTransform;
-        static GameObject PGameObj;
-        static Rigidbody2D PRigidBody;
+        PlayerControls PControls;
+        Animator PAnimator;
+        PlayerStats PStats;
+        Transform PTransform;
+        GameObject PGameObj;
+        Rigidbody2D PRigidBody;
 
         /// <summary>
         /// set each variable to the component on the Octo
@@ -29,12 +29,12 @@ namespace Player
         /// <summary>
         /// //get methods, used for accessing the Octo's components
         /// </summary>
-        public static PlayerControls GetPControls => PControls;
-        public static Transform GetPTransform => PTransform;
-        public static GameObject GetPGameObject => PGameObj;
-        public static Rigidbody2D GetPRigidBody => PRigidBody;
-        public static Animator GetPAnimator => PAnimator;
-        public static PlayerStats GetPStats => PStats;
+        public PlayerControls GetPControls => PControls;
+        public Transform GetPTransform => PTransform;
+        public GameObject GetPGameObject => PGameObj;
+        public Rigidbody2D GetPRigidBody => PRigidBody;
+        public Animator GetPAnimator => PAnimator;
+        public PlayerStats GetPStats => PStats;
 
 
     }

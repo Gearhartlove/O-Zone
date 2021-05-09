@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Player.PlayerComponents;
+using Player;
 
 public class PlayerControls : MonoBehaviour
 {
     PlayerStats PS;
-    PlayerCombat PC;
+    PlayerCombat PCombat;
+    PlayerComponents PComponents;
 
     //defensive move to protect player
     bool isDefensive = false;
@@ -21,7 +22,8 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         PS = GetComponent<PlayerStats>();
-        PC = GetComponent<PlayerCombat>();
+        PCombat = GetComponent<PlayerCombat>();
+        PComponents = GetComponent<PlayerComponents>();
     }
 
     private void OnWestButton()
@@ -31,10 +33,10 @@ public class PlayerControls : MonoBehaviour
         //if (!PS.GetInAir || !PS.GetInWaterBooster)
         {
             PS.IsBursting = true;
-            GetPAnimator.SetTrigger("Big Swim");
+            PComponents.GetPAnimator.SetTrigger("Big Swim");
             GetComponent<ParticleSystem>().Play();
             PS.CallStopBursting();
-            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
+            PComponents.GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
         }
     }
 
@@ -50,7 +52,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnSouthButton()
     {
-        PC.Attack();
+        PCombat.Attack();
     }
 
     private void OnLeftTrigger()
@@ -81,7 +83,7 @@ public class PlayerControls : MonoBehaviour
         if (input.sqrMagnitude > 0.1f)
         {
             //avoid jerking back to rotation 0
-            GetPTransform.rotation = Quaternion.Euler(0, 0, angle);
+            PComponents.GetPTransform.rotation = Quaternion.Euler(0, 0, angle);
             //Player is moving
             PS.IsMoving = true;
         }
@@ -100,7 +102,7 @@ public class PlayerControls : MonoBehaviour
         //MOVE the player
         if (!PS.GetInAir && PS.IsMoving)
         {
-            
+
             //If the player is going faster than the desired maximum speed,
             //add force in the opposite direction to slow down the player
             //if (CurrentSpeed > PS.GetMaxSpeed)
@@ -112,7 +114,7 @@ public class PlayerControls : MonoBehaviour
             //}
             //else //speed up the player 
             //{
-            GetPRigidBody.AddRelativeForce
+            PComponents.GetPRigidBody.AddRelativeForce
                 (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
             //}
         }
