@@ -133,4 +133,9 @@ public class octoPaletteSwapTest : MonoBehaviour
         }
         mColorSwapTex.Apply();
     }
+
+    public void SetSwapPalette(Texture2D newPalette)
+    {
+        SwapPalette = newPalette;
+    }
 }

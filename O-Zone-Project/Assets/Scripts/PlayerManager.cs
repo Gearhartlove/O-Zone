@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     public int PCount {get{return pCount;}}
 
     //METHODS
-    private void Start()
+    private void Awake()
     {
         PInputManager = gameObject.GetComponent<PlayerInputManager>();
         PArray = new GameObject[4];
@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
     private void OnPlayerJoined(PlayerInput player)
     {
         PArray[PCount] = player.gameObject;
+        GetComponent<ColorManager>().SwapPalette(player.gameObject, PCount);
         pCount++;
     }
 
