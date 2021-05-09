@@ -80,17 +80,27 @@ public class PlayerStats : MonoBehaviour
     public void CallStopBursting()
     {
         TempSpeed = GetMovementSpeed;
+        IsDefensive = true;
+
         ChangeSpeed(BURSTSLOW);
         Invoke("StopBursting", BURSTCD);
         Invoke("BurstSlowOcto", SLOWOCTOCD);
+        Invoke("StopDefense", DEFENSECD);
     }
 
     //Defensive / stun information
     [SerializeField] bool isDefensive = false;
-    bool IsDefensive
+    [SerializeField] float defenseCD = 1f;
+    public bool IsDefensive
     {
         get { return isDefensive; }
         set { isDefensive = value; }
+    }
+    public float DEFENSECD { get { return defenseCD; } }
+
+    public void StopDefense()
+    {
+        IsDefensive = false;
     }
 
     //Terrain
