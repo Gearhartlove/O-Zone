@@ -9,27 +9,14 @@ public class PlayerControls : MonoBehaviour
     PlayerStats PS;
     PlayerCombat PC;
 
-    //move into PlayerStats after
-    //[SerializeField] bool isBursting = false;
-    //[SerializeField] float BurstLength = 1f;
-    //public void StopBursting() { isBursting = false;
-    //    Debug.Log("stop bursting " + Time.time);
-    //}
-    //--------------------------------------------
     //defensive move to protect player
     bool isDefensive = false;
+    [SerializeField] float stunLength = 0;
     [SerializeField] bool IsDefensive
     {
         get { return isDefensive; }
         set { isDefensive = value; }
-    }
-
-    //attack --> host gameobject --> access their PlayerCombat.Stun()
-     
-
-
-    //--------------------------------------------
-    
+    }  
 
     private void Awake()
     {

@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float RotationSpeed = 8f;
     [SerializeField] float MovementSpeed = 8f;
     [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
+    float TempSpeed; //used to change speed
     bool isMoving = false;
     public bool IsMoving
     {
@@ -52,34 +53,54 @@ public class PlayerStats : MonoBehaviour
     }
     public bool GetInWaterBooster => InWaterBooster;
 
-    //--> bursting
+    public void ChangeSpeed(float val)
+    {
+        //slowing
+        SetMovementSpeed(val);
+    }
+
+    //Bursting
     bool isBursting = false;
+    private float burstLength = 1f;
+    [SerializeField] private float slowOctoCD = 1f;
+    [SerializeField] private float burstSlow = 900f;
+    public float BURSTCD { get {return burstLength;} }
+    public float BURSTSLOW { get { return burstSlow; } }
+    public float SLOWOCTOCD { get { return slowOctoCD; } }
     public bool IsBursting
     {
         get { return isBursting; }
         set { isBursting = value; }
     }
-    private float burstLength = 1f;
-    public float BURSTLENGTH { get {return burstLength;} }
 
-    private void StopBursting()
-    {
-        isBursting = false;
-        Debug.Log("stop bursting " + Time.time);
-    }
+    private void StopBursting() => isBursting = false;  
+
+    public void BurstSlowOcto() => ChangeSpeed(TempSpeed);
 
     public void CallStopBursting()
     {
-        Invoke("StopBursting", BURSTLENGTH);
+        TempSpeed = GetMovementSpeed;
+        ChangeSpeed(BURSTSLOW);
+        Invoke("StopBursting", BURSTCD);
+        Invoke("BurstSlowOcto", SLOWOCTOCD);
     }
 
-    //terrain
+    //Defensive / stun information
+    [SerializeField] bool isDefensive = false;
+    bool IsDefensive
+    {
+        get { return isDefensive; }
+        set { isDefensive = value; }
+    }
+
+    //Terrain
     public bool GetInAir => InAir;
 
     public void SetInAir(bool change)
     {
         InAir = change;
     }
+
     // Combat Values
     [SerializeField] float AttackCooldownTime;
     [SerializeField] bool AttackCooldown = false;
