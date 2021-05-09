@@ -14,10 +14,9 @@ public class PlayerCombat : MonoBehaviour
 
     private GameObject NewExplosion;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-
+        StoredSpeed = GetPStats.GetMovementSpeed;
     }
 
     public void Attack()
@@ -28,11 +27,19 @@ public class PlayerCombat : MonoBehaviour
         }
         GetPAnimator.SetTrigger("Attack");
         GetPStats.SetAttackCooldown(true);
-        StoredSpeed = GetPStats.GetMovementSpeed;
-        GetPStats.SetMovementSpeed(SlowSpeed);
         Invoke("EndCooldown", 1.3f);
-        Invoke("SpeedUp", 0.5f);
         Invoke("StartAttack", 0.35f);
+
+        //burst takes precidence over attacking
+        //FYI, can attack at the tail end of bursting, and the attack slow will not
+        //take into affect, can change later
+        if (!GetPStats.IsBursting)
+        {
+            GetPStats.SetMovementSpeed(SlowSpeed);
+            Invoke("SpeedUp", 0.5f);
+        }
+        
+        
     }
 
     public void EndCooldown()
