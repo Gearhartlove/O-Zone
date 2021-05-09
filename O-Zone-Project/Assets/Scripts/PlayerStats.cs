@@ -10,15 +10,15 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
     bool isMoving = false;
     public bool IsMoving
-        {
-            get { return isMoving; }
-            set { isMoving = value; } 
-        }
+    {
+        get { return isMoving; }
+        set { isMoving = value; }
+    }
 
     [SerializeField] float burstSpeed = 80000;
     public float BurstSpeed
     {
-        get {return burstSpeed; }
+        get { return burstSpeed; }
     }
     private bool inWaterBooster = false;
     public bool InWaterBooster
@@ -26,11 +26,11 @@ public class PlayerStats : MonoBehaviour
         get { return inWaterBooster; }
         set { inWaterBooster = value; }
     }
-        
+
     //SceneLogic
     int round_win_count;
     [SerializeField] bool InAir = false;
-    
+
 
     public void RoundWin() { round_win_count++; }
 
@@ -51,6 +51,27 @@ public class PlayerStats : MonoBehaviour
         MovementSpeed = speed;
     }
     public bool GetInWaterBooster => InWaterBooster;
+
+    //--> bursting
+    bool isBursting = false;
+    public bool IsBursting
+    {
+        get { return isBursting; }
+        set { isBursting = value; }
+    }
+    private float burstLength = 1f;
+    public float BURSTLENGTH { get {return burstLength;} }
+
+    private void StopBursting()
+    {
+        isBursting = false;
+        Debug.Log("stop bursting " + Time.time);
+    }
+
+    public void CallStopBursting()
+    {
+        Invoke("StopBursting", BURSTLENGTH);
+    }
 
     //terrain
     public bool GetInAir => InAir;

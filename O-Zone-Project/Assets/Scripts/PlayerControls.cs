@@ -10,11 +10,11 @@ public class PlayerControls : MonoBehaviour
     PlayerCombat PC;
 
     //move into PlayerStats after
-    [SerializeField] bool isBursting = false;
-    [SerializeField] float BurstLength = 1f;
-    public void StopBursting() { isBursting = false;
-        Debug.Log("stop bursting " + Time.time);
-    }
+    //[SerializeField] bool isBursting = false;
+    //[SerializeField] float BurstLength = 1f;
+    //public void StopBursting() { isBursting = false;
+    //    Debug.Log("stop bursting " + Time.time);
+    //}
     //--------------------------------------------
     //defensive move to protect player
     bool isDefensive = false;
@@ -39,18 +39,14 @@ public class PlayerControls : MonoBehaviour
 
     private void OnWestButton()
     {
-        
-
         //BURST : fast set movement in water, small pause afterwords
-        if (!isBursting)
+        if (!PS.IsBursting)
         //if (!PS.GetInAir || !PS.GetInWaterBooster)
         {
-            isBursting = true;
+            PS.IsBursting = true;
             GetPAnimator.SetTrigger("Big Swim");
-            Invoke("StopBursting", BurstLength);
-            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);
-            Debug.Log(Vector2.up * PS.BurstSpeed);
-            
+            PS.CallStopBursting();
+            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
         }
     }
 

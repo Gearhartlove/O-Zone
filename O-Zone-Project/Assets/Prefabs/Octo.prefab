@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 8
-  MovementSpeed: 2000
+  MovementSpeed: 1400
   MaximumSpeed: 20
   burstSpeed: 420
   InAir: 0
