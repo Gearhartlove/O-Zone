@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 6534519900754578167}
   - component: {fileID: 8047606801107057238}
   - component: {fileID: 8076880286975615632}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Octo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5054,7 +5054,7 @@ GameObject:
   - component: {fileID: 3766526524327714421}
   - component: {fileID: 4020400230444214225}
   - component: {fileID: 8815392478303547087}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
