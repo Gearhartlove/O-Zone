@@ -164,6 +164,18 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    //damaging a player
+    public void Damage(int damageAmount)
+    {
+        GetComponent<Animator>().SetTrigger("Damaged");
+        Health -= damageAmount;
+        GetComponent<Animator>().SetInteger("Health", Health);
+        if (Health <= 0)
+        {
+            KillPlayer();
+        }
+    }
+
     public void KillPlayer()
     {
         GetComponent<PlayerInput>().DeactivateInput();
