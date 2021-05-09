@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     private PlayerStats Stats;
 
     [SerializeField] int AttackDamage = 1;
+    [SerializeField] float Knockback;
 
     private void Awake()
     {
@@ -33,7 +34,8 @@ public class Attack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerStats>().Damage(AttackDamage, gameObject);
+            Vector2 calculatedKnockback = Knockback * transform.up;
+            collision.GetComponent<PlayerStats>().Damage(AttackDamage, transform.parent.gameObject, calculatedKnockback);
         } else if (collision.CompareTag("Projectile"))
         {
             collision.GetComponent<Fruit>().DestroyFruit();

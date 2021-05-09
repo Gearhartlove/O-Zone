@@ -6,6 +6,7 @@ public class Fruit : MonoBehaviour
 {
     private CircleCollider2D FruitHitbox;
     [SerializeField] int AttackDamage = 1;
+    [SerializeField] float Knockback;
     private GameObject AttackingPlayer;
     // Start is called before the first frame update
     void Awake()
@@ -41,7 +42,8 @@ public class Fruit : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStats>().Damage(AttackDamage, GetAttackingPlayer());
+            Vector2 calculatedKnockback = Knockback * collision.GetContact(0).normal;
+            collision.gameObject.GetComponent<PlayerStats>().Damage(AttackDamage, GetAttackingPlayer(), calculatedKnockback);
         }
         else
         {

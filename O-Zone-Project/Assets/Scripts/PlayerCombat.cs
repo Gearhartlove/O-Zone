@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private GameObject Fruit;
     [SerializeField] private float SlowSpeed;
     [SerializeField] private float ProjectileSpeed;
+    [SerializeField] private float AttackDuration = 0.1f;
     private float StoredSpeed;
 
     private GameObject NewExplosion;
@@ -64,7 +65,7 @@ public class PlayerCombat : MonoBehaviour
         }
         
         IsAttacking = true;
-        Invoke("StopAttacking", .8f);
+        Invoke("StopAttacking", AttackDuration);
     }
 
     public void StopAttacking()

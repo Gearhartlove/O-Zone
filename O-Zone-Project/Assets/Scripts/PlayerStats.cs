@@ -141,6 +141,30 @@ public class PlayerStats : MonoBehaviour
     }
 
     //damaging a player
+    public void Damage(int damageAmount, GameObject player, Vector2 knockback)
+    {
+
+        attackedByPlayer = player;
+        if (IsDefensive)
+        {
+            player.GetComponent<PlayerStats>().IsStunned = true;
+            //add stun functionality (AKA don't give players input ability)
+            player.GetComponent<PlayerInput>().DeactivateInput();
+            player.GetComponent<Animator>().SetTrigger("Stunned");
+            Invoke("StopStun", STUNCD);
+            return;
+        }
+        GetComponent<Rigidbody2D>().AddForce(knockback);
+        GetComponent<Animator>().SetTrigger("Damaged");
+        Health -= damageAmount;
+        GetComponent<Animator>().SetInteger("Health", Health);
+        if (Health <= 0)
+        {
+            KillPlayer();
+        }
+    }
+
+    //damaging a player
     public void Damage(int damageAmount, GameObject player)
     {
 
@@ -167,10 +191,13 @@ public class PlayerStats : MonoBehaviour
     //damaging a player
     public void Damage(int damageAmount)
     {
-        GetComponent<Animator>().SetTrigger("Damaged");
-        Health -= damageAmount;
-        GetComponent<Animator>().SetInteger("Health", Health);
-        if (Health <= 0)
+        if (Health > 0)
+        {
+            GetComponent<Animator>().SetTrigger("Damaged");
+            Health -= damageAmount;
+            GetComponent<Animator>().SetInteger("Health", Health);
+        }
+        else if (Health <= 0)
         {
             KillPlayer();
         }
