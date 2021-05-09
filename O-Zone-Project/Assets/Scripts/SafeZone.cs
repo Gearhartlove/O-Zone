@@ -15,4 +15,15 @@ public class SafeZone : MonoBehaviour
     {
         
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerStats>().Damage(1000);
+        } else if (collision.CompareTag("Projectile"))
+        {
+            collision.GetComponent<Fruit>().DestroyFruit();
+        }
+    }
 }

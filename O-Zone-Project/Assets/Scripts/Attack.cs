@@ -33,7 +33,7 @@ public class Attack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerStats>().Damage(AttackDamage, collision.gameObject);
+            collision.GetComponent<PlayerStats>().Damage(AttackDamage, gameObject);
         } else if (collision.CompareTag("Projectile"))
         {
             collision.GetComponent<Fruit>().DestroyFruit();

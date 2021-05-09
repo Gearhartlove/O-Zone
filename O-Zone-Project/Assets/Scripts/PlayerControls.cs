@@ -118,6 +118,11 @@ public class PlayerControls : MonoBehaviour
                 (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
             //}
         }
+
+        if (PS.GetInAir && GetComponent<Rigidbody2D>().velocity.magnitude == 0)
+        {
+            PS.Damage(1000);
+        }
     }
 
     private void OnStart()
