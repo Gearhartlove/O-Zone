@@ -140,8 +140,10 @@ public class PlayerStats : MonoBehaviour
         AttackCooldown = change;
     }
 
+    //damaging a player
     public void Damage(int damageAmount, GameObject player)
     {
+
         attackedByPlayer = player;
         if (IsDefensive)
         {
