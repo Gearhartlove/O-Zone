@@ -46,9 +46,10 @@ public class PlayerControls : MonoBehaviour
         //if (!PS.GetInAir || !PS.GetInWaterBooster)
         {
             isBursting = true;
+            GetPAnimator.SetTrigger("Big Swim");
             Invoke("StopBursting", BurstLength);
-            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed * Time.deltaTime);
-
+            GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);
+            Debug.Log(Vector2.up * PS.BurstSpeed);
             
         }
     }

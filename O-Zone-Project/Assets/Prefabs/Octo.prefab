@@ -187,7 +187,7 @@ MonoBehaviour:
   RotationSpeed: 8
   MovementSpeed: 2000
   MaximumSpeed: 20
-  burstSpeed: 20000
+  burstSpeed: 420
   InAir: 0
   AttackCooldownTime: 1
   AttackCooldown: 0

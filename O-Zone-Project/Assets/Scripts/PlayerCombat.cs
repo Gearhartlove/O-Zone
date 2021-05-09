@@ -28,8 +28,8 @@ public class PlayerCombat : MonoBehaviour
         GetPStats.SetAttackCooldown(true);
         StoredSpeed = GetPStats.GetMovementSpeed;
         GetPStats.SetMovementSpeed(SlowSpeed);
-        Invoke("EndCooldown", 1f);
-
+        Invoke("EndCooldown", 1.3f);
+        Invoke("SpeedUp", 0.5f);
         Invoke("StartAttack", 0.35f);
     }
 
@@ -50,12 +50,16 @@ public class PlayerCombat : MonoBehaviour
     {
         IsAttacking = false;
         Destroy(NewExplosion);
-        GetPStats.SetMovementSpeed(StoredSpeed);
     }
 
     public bool GetIsAttacking()
     {
         return IsAttacking;
+    }
+
+    public void SpeedUp()
+    {
+        GetPStats.SetMovementSpeed(StoredSpeed);
     }
 }
 
