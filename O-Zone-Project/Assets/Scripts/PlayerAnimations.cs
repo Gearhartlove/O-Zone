@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Player.PlayerComponents;
+using Player;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    // Start is called before the first frame update
+    PlayerComponents PC;
+
+    private void Start()
+    {
+        PC = GetComponent<PlayerComponents>();
+    }
+
     void Update()
     {
-        int velocity = (int) GetPRigidBody.velocity.magnitude;
-        GetPAnimator.SetInteger("Velocity", velocity);
+        int velocity = (int) PC.GetPRigidBody.velocity.magnitude;
+        PC.GetPAnimator.SetInteger("Velocity", velocity);
     }
 }

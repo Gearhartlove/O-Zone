@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Player.PlayerComponents;
+using Player;
 
 public class PlayerCombat : MonoBehaviour
 {
+    PlayerComponents PC;
     private bool IsAttacking = false;
     [SerializeField] private GameObject Explosion;
     [SerializeField] private GameObject Fruit;
@@ -17,26 +18,27 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         //get base movement speed of the Octo
-        StoredSpeed = GetPStats.GetMovementSpeed;
+        PC = GetComponent<PlayerComponents>();
+        StoredSpeed = PC.GetPStats.GetMovementSpeed;
     }
 
     public void Attack()
     {
-        if (GetPStats.GetAttackCooldown) // If on cooldown, exits the function immediately
+        if (PC.GetPStats.GetAttackCooldown) // If on cooldown, exits the function immediately
         {
             return;
         }
-        GetPAnimator.SetTrigger("Attack");
-        GetPStats.SetAttackCooldown(true);
+        PC.GetPAnimator.SetTrigger("Attack");
+        PC.GetPStats.SetAttackCooldown(true);
         Invoke("EndCooldown", 1.3f);
         Invoke("StartAttack", 0.35f);
 
         //burst takes precidence over attacking
         //FYI, can attack at the tail end of bursting, and the attack slow will not
         //take into affect, can change later
-        if (!GetPStats.IsBursting)
+        if (!PC.GetPStats.IsBursting)
         {
-            GetPStats.SetMovementSpeed(SlowSpeed);
+            PC.GetPStats.SetMovementSpeed(SlowSpeed);
             Invoke("SpeedUp", 0.5f);
         }
         
@@ -45,12 +47,12 @@ public class PlayerCombat : MonoBehaviour
 
     public void EndCooldown()
     {
-        GetPStats.SetAttackCooldown(false);
+        PC.GetPStats.SetAttackCooldown(false);
     }
 
     public void StartAttack()
     {
-        if (!GetPStats.GetInAir)
+        if (!PC.GetPStats.GetInAir)
         {
             NewExplosion = Instantiate(Explosion, transform.GetChild(0).position, transform.rotation);
             NewExplosion.GetComponent<Animator>().SetTrigger("Activate");
@@ -80,7 +82,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void SpeedUp()
     {
-        GetPStats.SetMovementSpeed(StoredSpeed);
+        PC.GetPStats.SetMovementSpeed(StoredSpeed);
     }
 }
 
