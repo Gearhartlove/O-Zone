@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Awake()
     {
+        //get base movement speed of the Octo
         StoredSpeed = GetPStats.GetMovementSpeed;
     }
 

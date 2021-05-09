@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -91,6 +92,8 @@ public class PlayerStats : MonoBehaviour
     //Defensive / stun information
     [SerializeField] bool isDefensive = false;
     [SerializeField] float defenseCD = 1f;
+    [SerializeField] bool isStunned = false;
+    [SerializeField] float stunCD = 1f;
     public bool IsDefensive
     {
         get { return isDefensive; }
@@ -98,9 +101,22 @@ public class PlayerStats : MonoBehaviour
     }
     public float DEFENSECD { get { return defenseCD; } }
 
+    public bool IsStunned
+    {
+        get { return isStunned; }
+        set { isStunned = value; }
+    }
+    public float STUNCD {  get { return stunCD; } }
+
     public void StopDefense()
     {
         IsDefensive = false;
+    }
+
+    public void StopStun()
+    {
+        attackedByPlayer.GetComponent<PlayerStats>().IsStunned = false;
+        attackedByPlayer.GetComponent<PlayerInput>().ActivateInput();
     }
 
     //Terrain
@@ -115,6 +131,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float AttackCooldownTime;
     [SerializeField] bool AttackCooldown = false;
     [SerializeField] int Health = 2;
+    private GameObject attackedByPlayer;
 
     public bool GetAttackCooldown => AttackCooldown;
 
@@ -123,8 +140,19 @@ public class PlayerStats : MonoBehaviour
         AttackCooldown = change;
     }
 
-    public void Damage(int damageAmount)
+    public void Damage(int damageAmount, GameObject player)
     {
+        attackedByPlayer = player;
+        if (IsDefensive)
+        {
+            player.GetComponent<PlayerStats>().IsStunned = true;
+            //add stun functionality (AKA don't give players input ability)
+            player.GetComponent<PlayerInput>().DeactivateInput();
+            player.GetComponent<Animator>().SetTrigger("Stunned");
+            Invoke("StopStun", STUNCD);
+            return;
+        }
+
         GetComponent<Animator>().SetTrigger("Damaged");
         Health -= damageAmount;
         if (Health <= 0)
