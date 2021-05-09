@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using static Manager.Game_Manager;
 
 public class StartZone : MonoBehaviour
@@ -20,7 +21,7 @@ public class StartZone : MonoBehaviour
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
             if (slider.value == slider.maxValue)
-                Debug.Log("start game");
+                SceneManager.LoadScene(1);
        }
        else
        {
@@ -31,13 +32,19 @@ public class StartZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        InZone = true;
-        PInZone++;
+        if (collision.tag == "Player")
+        {
+            InZone = true;
+            PInZone++;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        InZone = false;
-        PInZone--;
+        if (collision.tag == "Player")
+        {
+            InZone = false;
+            PInZone--;
+        }
     }
 }

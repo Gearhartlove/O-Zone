@@ -35,7 +35,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Start"",
+                    ""name"": ""StartButton"",
                     ""type"": ""Button"",
                     ""id"": ""46409161-900b-41bb-9c6b-77a8e3c806c6"",
                     ""expectedControlType"": ""Button"",
@@ -129,7 +129,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Start"",
+                    ""action"": ""StartButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -219,7 +219,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControlsMap = asset.FindActionMap("PlayerControlsMap", throwIfNotFound: true);
         m_PlayerControlsMap_LeftStick = m_PlayerControlsMap.FindAction("LeftStick", throwIfNotFound: true);
         m_PlayerControlsMap_RightStick = m_PlayerControlsMap.FindAction("RightStick", throwIfNotFound: true);
-        m_PlayerControlsMap_Start = m_PlayerControlsMap.FindAction("Start", throwIfNotFound: true);
+        m_PlayerControlsMap_StartButton = m_PlayerControlsMap.FindAction("StartButton", throwIfNotFound: true);
         m_PlayerControlsMap_WestButton = m_PlayerControlsMap.FindAction("WestButton", throwIfNotFound: true);
         m_PlayerControlsMap_EastButton = m_PlayerControlsMap.FindAction("EastButton", throwIfNotFound: true);
         m_PlayerControlsMap_NorthButton = m_PlayerControlsMap.FindAction("NorthButton", throwIfNotFound: true);
@@ -278,7 +278,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPlayerControlsMapActions m_PlayerControlsMapActionsCallbackInterface;
     private readonly InputAction m_PlayerControlsMap_LeftStick;
     private readonly InputAction m_PlayerControlsMap_RightStick;
-    private readonly InputAction m_PlayerControlsMap_Start;
+    private readonly InputAction m_PlayerControlsMap_StartButton;
     private readonly InputAction m_PlayerControlsMap_WestButton;
     private readonly InputAction m_PlayerControlsMap_EastButton;
     private readonly InputAction m_PlayerControlsMap_NorthButton;
@@ -292,7 +292,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public PlayerControlsMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @LeftStick => m_Wrapper.m_PlayerControlsMap_LeftStick;
         public InputAction @RightStick => m_Wrapper.m_PlayerControlsMap_RightStick;
-        public InputAction @Start => m_Wrapper.m_PlayerControlsMap_Start;
+        public InputAction @StartButton => m_Wrapper.m_PlayerControlsMap_StartButton;
         public InputAction @WestButton => m_Wrapper.m_PlayerControlsMap_WestButton;
         public InputAction @EastButton => m_Wrapper.m_PlayerControlsMap_EastButton;
         public InputAction @NorthButton => m_Wrapper.m_PlayerControlsMap_NorthButton;
@@ -315,9 +315,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @RightStick.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightStick;
                 @RightStick.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightStick;
                 @RightStick.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnRightStick;
-                @Start.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStart;
-                @Start.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStart;
-                @Start.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStart;
+                @StartButton.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStartButton;
+                @StartButton.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStartButton;
+                @StartButton.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnStartButton;
                 @WestButton.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnWestButton;
                 @WestButton.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnWestButton;
                 @WestButton.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnWestButton;
@@ -349,9 +349,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @RightStick.started += instance.OnRightStick;
                 @RightStick.performed += instance.OnRightStick;
                 @RightStick.canceled += instance.OnRightStick;
-                @Start.started += instance.OnStart;
-                @Start.performed += instance.OnStart;
-                @Start.canceled += instance.OnStart;
+                @StartButton.started += instance.OnStartButton;
+                @StartButton.performed += instance.OnStartButton;
+                @StartButton.canceled += instance.OnStartButton;
                 @WestButton.started += instance.OnWestButton;
                 @WestButton.performed += instance.OnWestButton;
                 @WestButton.canceled += instance.OnWestButton;
@@ -381,7 +381,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnLeftStick(InputAction.CallbackContext context);
         void OnRightStick(InputAction.CallbackContext context);
-        void OnStart(InputAction.CallbackContext context);
+        void OnStartButton(InputAction.CallbackContext context);
         void OnWestButton(InputAction.CallbackContext context);
         void OnEastButton(InputAction.CallbackContext context);
         void OnNorthButton(InputAction.CallbackContext context);

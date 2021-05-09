@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Start",
+                    "name": "StartButton",
                     "type": "Button",
                     "id": "46409161-900b-41bb-9c6b-77a8e3c806c6",
                     "expectedControlType": "Button",
@@ -116,7 +116,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Start",
+                    "action": "StartButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

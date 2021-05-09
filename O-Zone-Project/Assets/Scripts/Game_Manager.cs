@@ -9,16 +9,16 @@ namespace Manager
     /// </summary>
     public class Game_Manager : MonoBehaviour
     {
-        static SceneManager sceneManager;
+        static Scene_Manager sceneManager;
         static PlayerManager playerManager;
 
         private void Awake()
         {
-            sceneManager = gameObject.GetComponent<SceneManager>();
-            playerManager = gameObject.GetComponent<PlayerManager>();
+            sceneManager = GetComponent<Scene_Manager>();
+            playerManager = GetComponent<PlayerManager>();
         }
 
-        public static SceneManager GetSM => sceneManager;
+        public static Scene_Manager GetSM => sceneManager;
         public static PlayerManager GetPM => playerManager;
 
         public static int GenRN(int BoundedBy)

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using static Manager.Game_Manager;
 
-public class SceneManager : MonoBehaviour
+public class Scene_Manager : MonoBehaviour
 { 
     [SerializeField] Canvas UICanvas;
     [SerializeField] Tilemap[] TilemapArray;
@@ -21,18 +22,23 @@ public class SceneManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        //load the main menu, accessed from pause menu
+        //load the main menu
 
     }
 
     public void StartGame()
     {
+        //animation to start game
+        //load first stage
+        SceneManager.LoadScene(1);
         //load game with all Octo's round counts at 0
     }
 
     public void NextRound()
     {
+        //LoadStage() , changes the tilemap of the current stage
         //load next map with Octo's round counts saved
+
 
     }
 

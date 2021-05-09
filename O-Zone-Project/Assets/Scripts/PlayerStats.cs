@@ -59,7 +59,6 @@ public class PlayerStats : MonoBehaviour
     {
         InAir = change;
     }
-
     // Combat Values
     [SerializeField] float AttackCooldownTime;
     [SerializeField] bool AttackCooldown = false;

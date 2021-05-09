@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8404459156607049130}
   - component: {fileID: 8404459156607049129}
-  - component: {fileID: 8404459156607049131}
   - component: {fileID: 8404459156607049140}
   - component: {fileID: 8404459156607049128}
+  - component: {fileID: 8652101645655335291}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -57,16 +57,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_JoinAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 8c8fd149-7dc8-4f26-9e5c-3ecdbcd82d82
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: 3307765864416411966, guid: 94ed2623550b84386af72b2da8902df9, type: 3}
   m_PlayerPrefab: {fileID: 702836810906472117, guid: ab25f7ca75dc0514fbbc703cb03c7fc2, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
@@ -77,22 +77,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &8404459156607049131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8404459156607049141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d0a6ddf91564535844c58e488a761c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UICanvas: {fileID: 0}
-  TilemapArray: []
-  CurrentTileMap: {fileID: 0}
-  TilemapChecker: 
 --- !u!114 &8404459156607049140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +102,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93280bc809a3548078c64a9160b63095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8652101645655335291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8404459156607049141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a552ec96318e442aa2e43e63b5b474d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UICanvas: {fileID: 0}
+  TilemapArray: []
+  CurrentTileMap: {fileID: 0}
+  TilemapChecker: 
