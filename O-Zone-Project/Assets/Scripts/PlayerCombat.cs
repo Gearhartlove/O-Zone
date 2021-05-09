@@ -60,7 +60,7 @@ public class PlayerCombat : MonoBehaviour
             GameObject newFruit = Instantiate(Fruit, transform.GetChild(0).position, transform.rotation);
             Vector2 ShootSpeed = new Vector2(0, ProjectileSpeed);
             newFruit.GetComponent<Rigidbody2D>().AddRelativeForce(ShootSpeed);
-            newFruit.GetComponent<Fruit>().SetAttackingPlayer(transform.gameObject);
+            newFruit.GetComponent<Fruit>().SetAttackingPlayer(PC.GetPGameObject);
         }
         
         IsAttacking = true;

@@ -41,7 +41,7 @@ public class Fruit : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<PlayerStats>().Damage(AttackDamage, GetAttackingPlayer());
+            collision.gameObject.GetComponent<PlayerStats>().Damage(AttackDamage, GetAttackingPlayer());
         }
         else
         {
