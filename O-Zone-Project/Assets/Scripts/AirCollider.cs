@@ -12,12 +12,15 @@ public class AirCollider : MonoBehaviour
         }
         else if (collision.tag == "Projectile") { }
 
-        collision.attachedRigidbody.gravityScale = 4.5f;
+        if (collision.tag == "Player" || collision.tag == "Projectile")
+        {
+            collision.attachedRigidbody.gravityScale = 4.5f;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player") 
+        if (collision.CompareTag("Player")) 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
             collision.attachedRigidbody.gravityScale = 0;

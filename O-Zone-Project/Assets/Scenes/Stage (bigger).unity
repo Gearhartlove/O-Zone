@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minVelocity: 3
-  boostVector: {x: 18, y: 22}
+  boostVector: {x: 20, y: 26}
 --- !u!61 &1396821962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2244,7 +2244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Palette1: {fileID: 2800000, guid: db00abeb4b60d95468e7f50871da7479, type: 3}
-  Palette2: {fileID: 2800000, guid: 015cad38f99446f4db3659e0552b08bf, type: 3}
+  Palette2: {fileID: 2800000, guid: 8ab3f57bc1a0eaa4a8319d24fff11978, type: 3}
   Palette3: {fileID: 2800000, guid: 75877b11b9ece6b40a235228567ecf6d, type: 3}
   Palette4: {fileID: 2800000, guid: 7cf4ac46227fc314daee9a893906e5ec, type: 3}
 --- !u!1 &1834541401
@@ -2467,12 +2467,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+      propertyPath: m_Size.x
+      value: 13.999246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
       propertyPath: m_Size.y
-      value: 3.531804
+      value: 3.7492552
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.8070722
       objectReference: {fileID: 0}
     - target: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
       propertyPath: m_Offset.y
-      value: 2.0659137
+      value: 2.2616196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}

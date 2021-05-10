@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3c5654fb50b4409af95aaa91512644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunLength: 0
 --- !u!114 &3383888405562523817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,9 +194,10 @@ MonoBehaviour:
   isDefensive: 0
   defenseCD: 1
   isStunned: 0
-  stunCD: 1
+  stunCD: 0.8
   AttackCooldownTime: 1
   AttackCooldown: 0
+  MaxHealth: 2
   Health: 2
 --- !u!114 &7242350220973229653
 MonoBehaviour:
@@ -272,7 +272,8 @@ MonoBehaviour:
   Explosion: {fileID: 648031808520922507, guid: eb9b579e4fac5614582e8e5ece0d12cf, type: 3}
   Fruit: {fileID: 791504419140853032, guid: fe9bc9850dc2ac34e8d3c41c68d0db69, type: 3}
   SlowSpeed: 800
-  ProjectileSpeed: 500
+  ProjectileSpeed: 800
+  AttackDuration: 0.25
 --- !u!198 &8047606801107057238
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5116,4 +5117,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 1
-  Knockback: 800
+  Knockback: 500

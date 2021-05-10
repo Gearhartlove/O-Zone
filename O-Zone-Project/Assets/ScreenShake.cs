@@ -23,18 +23,7 @@ public class ScreenShake : MonoBehaviour
 
     public Vector2 _Direction = Vector2.up;
 
-    float _FadeOut = 1f;
-
-#if UNITY_EDITOR
-    void Reset()
-    {
-        _Target = transform;
-    }
-    void OnValidate()
-    {
-        _Direction.Normalize();
-    }
-#endif // UNITY_EDITOR
+    float _FadeOut = 0f;
 
     void OnEnable()
     {
@@ -47,14 +36,14 @@ public class ScreenShake : MonoBehaviour
 
     void Update()
     {
-        /* var sin = Mathf.Sin(_Speed * (_Seed.x + _Seed.y + Time.time));
+        var sin = Mathf.Sin(_Speed * (_Seed.x + _Seed.y + Time.time));
         var direction = _Direction + GetNoise();
         direction.Normalize();
         var delta = direction * sin;
-        _Target.localPosition = delta * _MaxMagnitude * _FadeOut; */
+        _Target.localPosition = delta * _MaxMagnitude * _FadeOut;
     }
 
-    void FireOnce()
+    public void FireOnce()
     {
         StopAllCoroutines();
         StartCoroutine(ShakeAndFade(0.5f));

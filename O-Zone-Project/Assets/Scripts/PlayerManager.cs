@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     public static int DeadCount
     {
         get { return deadCount; }
-        set { DeadCount = value; }
+        set { deadCount = value; }
     }
 
     //METHODS
@@ -53,8 +53,8 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (GameObject player in PArray)
         {
-            PlayerStats PS = player.GetComponent<PlayerStats>();
-            PS.SetHealth();
+            //PlayerStats PS = player.GetComponent<PlayerStats>();
+            //PS.SetHealth();
         }
     }
 

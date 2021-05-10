@@ -42,8 +42,9 @@ public class Fruit : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Vector2 calculatedKnockback = Knockback * collision.GetContact(0).normal;
+            Vector2 calculatedKnockback = Knockback * collision.GetContact(0).normal * -1;
             collision.gameObject.GetComponent<PlayerStats>().Damage(AttackDamage, GetAttackingPlayer(), calculatedKnockback);
+            DestroyFruit();
         }
         else
         {

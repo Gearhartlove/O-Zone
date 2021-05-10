@@ -170,6 +170,7 @@ public class PlayerStats : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Damaged");
         Health -= damageAmount;
         GetComponent<Animator>().SetInteger("Health", Health);
+
         if (Health <= 0)
         {
             KillPlayer();
@@ -203,14 +204,14 @@ public class PlayerStats : MonoBehaviour
     //damaging a player
     public void Damage(int damageAmount)
     {
-        Debug.Log("dead");
         if (Health > 0)
         {
             GetComponent<Animator>().SetTrigger("Damaged");
             Health -= damageAmount;
             GetComponent<Animator>().SetInteger("Health", Health);
         }
-        else if (Health <= 0)
+
+        if (Health <= 0)
         {
             KillPlayer();
             if (PlayerManager.CheckAliveP()) //if one player alive return true
