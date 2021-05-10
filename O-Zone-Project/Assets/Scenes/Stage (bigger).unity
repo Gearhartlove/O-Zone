@@ -1315,6 +1315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Safezone
       objectReference: {fileID: 0}
+    - target: {fileID: 944343658027659682, guid: df11c62bf7f0a4249b812f63049c5626, type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 661021094}
     - target: {fileID: 2100354498046272398, guid: df11c62bf7f0a4249b812f63049c5626, type: 3}
       propertyPath: m_Size.x
       value: 14.05
@@ -1373,23 +1377,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df11c62bf7f0a4249b812f63049c5626, type: 3}
---- !u!1 &804288218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 461957483315846348, guid: df11c62bf7f0a4249b812f63049c5626, type: 3}
-  m_PrefabInstance: {fileID: 694423214}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &804288219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804288218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a3b204ca3ea06428dc8e8fb4eecb69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1079881206
 GameObject:
   m_ObjectHideFlags: 0

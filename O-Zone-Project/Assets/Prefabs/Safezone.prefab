@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6928184579138957989}
   - component: {fileID: 2100354498046272398}
+  - component: {fileID: 944343658027659682}
   m_Layer: 0
-  m_Name: Killzone
+  m_Name: Safezone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,3 +58,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &944343658027659682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461957483315846348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3b204ca3ea06428dc8e8fb4eecb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathParticles: {fileID: 6231411764451871215, guid: 2751266c8323d0542895e3886c007c25, type: 3}
