@@ -12,7 +12,6 @@ public class PlayerControls : MonoBehaviour
 
     //defensive move to protect player
     bool isDefensive = false;
-    [SerializeField] float stunLength = 0;
     [SerializeField] bool IsDefensive
     {
         get { return isDefensive; }

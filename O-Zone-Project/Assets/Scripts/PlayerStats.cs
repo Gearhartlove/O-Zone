@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
+    private void Awake()
+    {
+        SetHealth();
+    }
+
     //Movement + Physics values
     [SerializeField] float RotationSpeed = 8f;
     [SerializeField] float MovementSpeed = 8f;
@@ -130,7 +135,8 @@ public class PlayerStats : MonoBehaviour
     // Combat Values
     [SerializeField] float AttackCooldownTime;
     [SerializeField] bool AttackCooldown = false;
-    [SerializeField] int Health = 2;
+    [SerializeField] private int MaxHealth = 2;
+    [SerializeField] int Health;
     private GameObject attackedByPlayer;
 
     public bool GetAttackCooldown => AttackCooldown;
@@ -138,6 +144,12 @@ public class PlayerStats : MonoBehaviour
     public void SetAttackCooldown(bool change)
     {
         AttackCooldown = change;
+    }
+
+    //set health to max
+    public void SetHealth()
+    {
+        Health = MaxHealth;
     }
 
     //damaging a player
@@ -191,6 +203,7 @@ public class PlayerStats : MonoBehaviour
     //damaging a player
     public void Damage(int damageAmount)
     {
+        Debug.Log("dead");
         if (Health > 0)
         {
             GetComponent<Animator>().SetTrigger("Damaged");
@@ -200,11 +213,16 @@ public class PlayerStats : MonoBehaviour
         else if (Health <= 0)
         {
             KillPlayer();
+            if (PlayerManager.CheckAliveP()) //if one player alive return true
+            {
+                Scene_Manager.NextRound();
+            }
         }
     }
 
     public void KillPlayer()
     {
         GetComponent<PlayerInput>().DeactivateInput();
+        PlayerManager.DeadCount++;
     }
 }

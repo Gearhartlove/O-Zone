@@ -8,14 +8,14 @@ using static Manager.Game_Manager;
 public class Scene_Manager : MonoBehaviour
 { 
     [SerializeField] Canvas UICanvas;
-    [SerializeField] Tilemap[] TilemapArray;
-    [SerializeField] Tilemap CurrentTileMap;
+    [SerializeField] Stage[] StageArray;
+    [SerializeField] Stage CurrentStage;
     int Tm_length;
     [SerializeField] int[] TilemapChecker;
 
     private void Start()
     {
-        Tm_length = TilemapArray.Length;
+        Tm_length = StageArray.Length;
         TilemapChecker = new int[Tm_length];
         //CurrentTileMap = 
     }
@@ -34,28 +34,29 @@ public class Scene_Manager : MonoBehaviour
         //load game with all Octo's round counts at 0
     }
 
-    public void NextRound()
+    public static void NextRound()
     {
-        //LoadStage() , changes the tilemap of the current stage
-        //load next map with Octo's round counts saved
-
-
+        PlayerManager.DeadCount = 0;
+        PlayerManager.ResetPlayers();  //reset health
+        PlayerManager.SpawnOctos();    //spawn players
     }
 
     //load random stage
     public void LoadStage()
     {
-        int Rnum = GenRN(Tm_length); //Random Number
+        NextRound();
+        SceneManager.LoadScene(1);
+        //int Rnum = GenRN(Tm_length); //Random Number
         //1 = used already
-        while(TilemapChecker[Rnum] == 1)
-        {
+        //while(TilemapChecker[Rnum] == 1)
+       // {
             //get a map that hasen't been used before
-            Rnum = GenRN(Tm_length);
-        }
+            //Rnum = GenRN(Tm_length);
+        //}
         //change the tilemap
-        CurrentTileMap = TilemapArray[Rnum];
+        //CurrentStage = StageArray[Rnum];
         //set map to used
-        TilemapChecker[Rnum] = 1;
+        //TilemapChecker[Rnum] = 1;
 
     }
 
