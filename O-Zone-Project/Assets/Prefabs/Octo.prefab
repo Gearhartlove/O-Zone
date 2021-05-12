@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 6534519900754578167}
   - component: {fileID: 8047606801107057238}
   - component: {fileID: 8076880286975615632}
+  - component: {fileID: 5830122894172216592}
   m_Layer: 3
   m_Name: Octo
   m_TagString: Player
@@ -194,11 +195,11 @@ MonoBehaviour:
   isDefensive: 0
   defenseCD: 1
   isStunned: 0
-  stunCD: 0.8
+  stunLength: 1
   AttackCooldownTime: 1
+  isDead: 0
   AttackCooldown: 0
   MaxHealth: 2
-  Health: 2
 --- !u!114 &7242350220973229653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5046,6 +5047,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5830122894172216592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702836810906472117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95854dda2dc84d4ba653da4355bb919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StunLength: 0.25
 --- !u!1 &7781591935191791938
 GameObject:
   m_ObjectHideFlags: 0

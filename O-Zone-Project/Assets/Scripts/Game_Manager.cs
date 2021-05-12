@@ -16,6 +16,7 @@ namespace Manager
         {
             sceneManager = GetComponent<Scene_Manager>();
             playerManager = GetComponent<PlayerManager>();
+            DontDestroyOnLoad(this.gameObject);
         }
 
         public static Scene_Manager GetSM => sceneManager;

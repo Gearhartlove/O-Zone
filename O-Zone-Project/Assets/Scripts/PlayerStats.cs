@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Player;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PlayerStats : MonoBehaviour
         set { inWaterBooster = value; }
     }
 
+    //-------------------------------------------------------------
     //SceneLogic
     int round_win_count;
     [SerializeField] bool InAir = false;
@@ -41,6 +43,7 @@ public class PlayerStats : MonoBehaviour
 
     public void RoundWin() { round_win_count++; }
 
+    //-------------------------------------------------------------
     //rotation
     public float GetRotationSpeed => RotationSpeed;
     public float GetMaxSpeed => MaximumSpeed;
@@ -51,6 +54,7 @@ public class PlayerStats : MonoBehaviour
             * (180 / Mathf.PI);
     }
 
+    //-------------------------------------------------------------
     //movement
     public float GetMovementSpeed => MovementSpeed;
     public void SetMovementSpeed(float speed)
@@ -65,6 +69,7 @@ public class PlayerStats : MonoBehaviour
         SetMovementSpeed(val);
     }
 
+    //-------------------------------------------------------------
     //Bursting
     bool isBursting = false;
     private float burstLength = 1f;
@@ -94,11 +99,12 @@ public class PlayerStats : MonoBehaviour
         Invoke("StopDefense", DEFENSECD);
     }
 
+    //-------------------------------------------------------------
     //Defensive / stun information
     [SerializeField] bool isDefensive = false;
     [SerializeField] float defenseCD = 1f;
     [SerializeField] bool isStunned = false;
-    [SerializeField] float stunCD = 1f;
+    [SerializeField] float stunLength = 1f;
     public bool IsDefensive
     {
         get { return isDefensive; }
@@ -111,19 +117,15 @@ public class PlayerStats : MonoBehaviour
         get { return isStunned; }
         set { isStunned = value; }
     }
-    public float STUNCD {  get { return stunCD; } }
+    public float StunLength {  get { return stunLength; } }
 
     public void StopDefense()
     {
         IsDefensive = false;
     }
 
-    public void StopStun()
-    {
-        attackedByPlayer.GetComponent<PlayerStats>().IsStunned = false;
-        attackedByPlayer.GetComponent<PlayerInput>().ActivateInput();
-    }
 
+    //-------------------------------------------------------------
     //Terrain
     public bool GetInAir => InAir;
 
@@ -132,11 +134,44 @@ public class PlayerStats : MonoBehaviour
         InAir = change;
     }
 
+    //-------------------------------------------------------------
     // Combat Values
     [SerializeField] float AttackCooldownTime;
+    [SerializeField] bool isDead;
+    public bool IsDead
+    {
+        get { return isDead; }
+        set { isDead = value; }
+    }
     [SerializeField] bool AttackCooldown = false;
     [SerializeField] private int MaxHealth = 2;
-    [SerializeField] int Health;
+    private int currentHealth;
+    public int CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            currentHealth = value;
+            if (currentHealth != MaxHealth)
+            {
+                if (!IsDead)
+                {
+                    if (currentHealth <= 0 || currentHealth == 0)
+                    {
+                        GetComponent<Animator>().SetInteger("Health", currentHealth);
+                        GetComponent<Animator>().SetTrigger("Damaged");
+                        Debug.Log(IsDead);
+                        IsDead = true;
+                        KillPlayer();
+                        return;
+                    }
+                    GetComponent<Animator>().SetInteger("Health", currentHealth);
+                    GetComponent<Animator>().SetTrigger("Damaged");
+                }   
+            }
+        }
+    }
+
     private GameObject attackedByPlayer;
 
     public bool GetAttackCooldown => AttackCooldown;
@@ -149,76 +184,39 @@ public class PlayerStats : MonoBehaviour
     //set health to max
     public void SetHealth()
     {
-        Health = MaxHealth;
+        CurrentHealth = MaxHealth;
     }
 
-    //damaging a player
+    //Fruit Damaging a player?
     public void Damage(int damageAmount, GameObject player, Vector2 knockback)
     {
-
-        attackedByPlayer = player;
         if (IsDefensive)
         {
-            player.GetComponent<PlayerStats>().IsStunned = true;
-            //add stun functionality (AKA don't give players input ability)
-            player.GetComponent<PlayerInput>().DeactivateInput();
-            player.GetComponent<Animator>().SetTrigger("Stunned");
-            Invoke("StopStun", STUNCD);
+            //Stun attacking player
+            PlayerStatus.StunAttackingPlayer(player);
             return;
         }
-        GetComponent<Rigidbody2D>().AddForce(knockback);
-        GetComponent<Animator>().SetTrigger("Damaged");
-        Health -= damageAmount;
-        GetComponent<Animator>().SetInteger("Health", Health);
-
-        if (Health <= 0)
-        {
-            KillPlayer();
-        }
+        CurrentHealth -= damageAmount;
+        Fruit.ApplyFruitKnockback(gameObject, knockback);       
     }
 
-    //damaging a player
+    //damaging a player with melee
     public void Damage(int damageAmount, GameObject player)
     {
-
-        attackedByPlayer = player;
         if (IsDefensive)
         {
-            player.GetComponent<PlayerStats>().IsStunned = true;
-            //add stun functionality (AKA don't give players input ability)
-            player.GetComponent<PlayerInput>().DeactivateInput();
-            player.GetComponent<Animator>().SetTrigger("Stunned");
-            Invoke("StopStun", STUNCD);
-            return;
-        }
-
-        GetComponent<Animator>().SetTrigger("Damaged");
-        Health -= damageAmount;
-        GetComponent<Animator>().SetInteger("Health", Health);
-        if (Health <= 0)
-        {
-            KillPlayer();
-        }
+            //Stun attacking player
+            PlayerStatus.StunAttackingPlayer(player);
+            return;         
+        } 
+        CurrentHealth -= damageAmount;
     }
 
-    //damaging a player
+    //Stage Damaging Player --> Instakill
     public void Damage(int damageAmount)
     {
-        if (Health > 0)
-        {
-            GetComponent<Animator>().SetTrigger("Damaged");
-            Health -= damageAmount;
-            GetComponent<Animator>().SetInteger("Health", Health);
-        }
-
-        if (Health <= 0)
-        {
-            KillPlayer();
-            if (PlayerManager.CheckAliveP()) //if one player alive return true
-            {
-                Scene_Manager.NextRound();
-            }
-        }
+        //ignore defense, stage kills anyway
+        CurrentHealth -= damageAmount;
     }
 
     public void KillPlayer()

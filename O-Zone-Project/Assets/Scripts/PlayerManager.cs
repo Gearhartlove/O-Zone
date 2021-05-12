@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     //Privatef
     //player array
     [SerializeField] static GameObject[] PArray;
+    [SerializeField] static Stage stage;
     PlayerInputManager PInputManager;
     private static int pCount = 0;
     private static int deadCount = 0;
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         PInputManager = gameObject.GetComponent<PlayerInputManager>();
         PArray = new GameObject[4];
+        stage = GameObject.Find("TheStage").GetComponent<Stage>();
     }
 
     private void OnPlayerJoined(PlayerInput player)
@@ -51,26 +53,19 @@ public class PlayerManager : MonoBehaviour
     //set hp to full
     public static void ResetPlayers()
     {
-        foreach (GameObject player in PArray)
-        {
-            //PlayerStats PS = player.GetComponent<PlayerStats>();
-            //PS.SetHealth();
+        for (int i = 0; i < pCount; i++)
+        { 
+            PlayerStats PS = PArray[i].GetComponent<PlayerStats>();
+            PS.SetHealth();
         }
     }
 
     public static void SpawnOctos()
     {
-        foreach (GameObject player in PArray)
-        {
-            
+        for (int i = 0; i < pCount; i++)
+        { 
+            PArray[i].transform.position = stage.SpawnPoints[i].transform.position;
+            i++;
         }
     }
-    
-    //dissable players from joining
-
-    //dissable a player's controls
-
-
-    //remove players from the array
-    
 }

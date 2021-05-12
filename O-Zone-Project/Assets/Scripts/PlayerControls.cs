@@ -10,14 +10,6 @@ public class PlayerControls : MonoBehaviour
     PlayerCombat PCombat;
     PlayerComponents PComponents;
 
-    //defensive move to protect player
-    bool isDefensive = false;
-    [SerializeField] bool IsDefensive
-    {
-        get { return isDefensive; }
-        set { isDefensive = value; }
-    }  
-
     private void Awake()
     {
         PS = GetComponent<PlayerStats>();
@@ -41,32 +33,12 @@ public class PlayerControls : MonoBehaviour
 
     private void OnEastButton()
     {
-
-    }
-
-    private void OnNorthButton()
-    {
-
+        Scene_Manager.LoadStage(); //TODO get rid of after
     }
 
     private void OnSouthButton()
     {
         PCombat.Attack();
-    }
-
-    private void OnLeftTrigger()
-    {
-
-    }
-
-    private void OnRightTrigger()
-    {
-
-    }
-
-    private void OnRightStick(InputValue value)
-    {
-
     }
 
     //player rotation script
@@ -101,36 +73,19 @@ public class PlayerControls : MonoBehaviour
         //MOVE the player
         if (!PS.GetInAir && PS.IsMoving)
         {
-
-            //If the player is going faster than the desired maximum speed,
-            //add force in the opposite direction to slow down the player
-            //if (CurrentSpeed > PS.GetMaxSpeed)
-            //{
-            //    //difference between current and maximum speed
-            //    float SpeedDifference = (CurrentSpeed - PS.GetMaxSpeed);
-            //    GetPRigidBody.AddRelativeForce
-            //        (Vector2.down * (SpeedDifference) * Time.deltaTime);
-            //}
-            //else //speed up the player 
-            //{
             PComponents.GetPRigidBody.AddRelativeForce
                 (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
-            //}
         }
 
         if (PS.GetInAir && GetComponent<Rigidbody2D>().velocity.magnitude == 0)
         {
+            //TODO Fix stranded on land Octo damage > > different collider ? ? ? 
             PS.Damage(1000);
         }
     }
 
     private void OnStart()
     {
-
-    }
-
-    private void OnTempAction() //delete after testing
-    {
-
+        //join the game
     }
 }

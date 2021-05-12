@@ -5,6 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class Stage : MonoBehaviour
 {
-    [SerializeField] GameObject[] SpawnPoints;
+    public GameObject[] SpawnPoints;
     [SerializeField] Tilemap TileMap_;   
 }

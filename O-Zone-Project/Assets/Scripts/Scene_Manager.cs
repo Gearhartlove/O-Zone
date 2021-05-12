@@ -9,7 +9,6 @@ public class Scene_Manager : MonoBehaviour
 { 
     [SerializeField] Canvas UICanvas;
     [SerializeField] Stage[] StageArray;
-    [SerializeField] Stage CurrentStage;
     int Tm_length;
     [SerializeField] int[] TilemapChecker;
 
@@ -34,37 +33,35 @@ public class Scene_Manager : MonoBehaviour
         //load game with all Octo's round counts at 0
     }
 
-    public static void NextRound()
+    //load random stage
+    public static void LoadStage()
     {
         PlayerManager.DeadCount = 0;
         PlayerManager.ResetPlayers();  //reset health
-        PlayerManager.SpawnOctos();    //spawn players
-    }
-
-    //load random stage
-    public void LoadStage()
-    {
-        NextRound();
         SceneManager.LoadScene(1);
-        //int Rnum = GenRN(Tm_length); //Random Number
-        //1 = used already
-        //while(TilemapChecker[Rnum] == 1)
-       // {
-            //get a map that hasen't been used before
-            //Rnum = GenRN(Tm_length);
-        //}
-        //change the tilemap
-        //CurrentStage = StageArray[Rnum];
-        //set map to used
-        //TilemapChecker[Rnum] = 1;
+        PlayerManager.SpawnOctos();    //spawn players
+
+        //RANDOM STAGE LOGIC
+            //SpawnOctos();
+            //int Rnum = GenRN(Tm_length); //Random Number
+            //1v = used already
+            //while(TilemapChecker[Rnum] == 1)
+           // {
+                //get a map that hasen't been used before
+                //Rnum = GenRN(Tm_length);
+            //}
+            //change the tilemap
+            //CurrentStage = StageArray[Rnum];
+            //set map to used
+            //TilemapChecker[Rnum] = 1;
 
     }
 
-    private void ResetTileMapChecker()
-    {
-        for (int i = 0; i<TilemapChecker.Length; i++)
-        {
-            TilemapChecker[i] = 0;
-        }
-    }
+    //private void ResetTileMapChecker()
+    //{
+    //    for (int i = 0; i<TilemapChecker.Length; i++)
+    //    {
+    //        TilemapChecker[i] = 0;
+    //    }
+    //}
 }

@@ -8,17 +8,11 @@ public class Fruit : MonoBehaviour
     [SerializeField] int AttackDamage = 1;
     [SerializeField] float Knockback;
     private GameObject AttackingPlayer;
-    // Start is called before the first frame update
+
     void Awake()
     {
         FruitHitbox = GetComponent<CircleCollider2D>();
         FruitHitbox.enabled = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetAttackingPlayer(GameObject Player)
@@ -50,5 +44,10 @@ public class Fruit : MonoBehaviour
         {
             DestroyFruit();
         }
+    }
+
+    public static void ApplyFruitKnockback(GameObject playerHit, Vector2 knockback)
+    {
+        playerHit.GetComponent<Rigidbody2D>().AddForce(knockback); //fruit knockback
     }
 }

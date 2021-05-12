@@ -12,6 +12,7 @@ namespace Player
         Transform PTransform;
         GameObject PGameObj;
         Rigidbody2D PRigidBody;
+        PlayerStatus PStatus;
 
         /// <summary>
         /// set each variable to the component on the Octo
@@ -24,6 +25,9 @@ namespace Player
             PTransform = gameObject.transform;
             PGameObj = gameObject;
             PRigidBody = gameObject.GetComponent<Rigidbody2D>();
+            PStatus = GetComponent<PlayerStatus>();
+
+            DontDestroyOnLoad(this.gameObject);
         }
 
         /// <summary>
@@ -35,6 +39,7 @@ namespace Player
         public Rigidbody2D GetPRigidBody => PRigidBody;
         public Animator GetPAnimator => PAnimator;
         public PlayerStats GetPStats => PStats;
+        public PlayerStatus GetPStatus => PStatus;
 
 
     }
