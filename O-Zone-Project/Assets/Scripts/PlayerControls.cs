@@ -76,12 +76,6 @@ public class PlayerControls : MonoBehaviour
             PComponents.GetPRigidBody.AddRelativeForce
                 (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
         }
-
-        if (PS.GetInAir && GetComponent<Rigidbody2D>().velocity.magnitude == 0)
-        {
-            //TODO Fix stranded on land Octo damage > > different collider ? ? ? 
-            PS.Damage(1000);
-        }
     }
 
     private void OnStart()
