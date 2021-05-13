@@ -6,9 +6,11 @@ using Player;
 
 public class PlayerControls : MonoBehaviour
 {
+
     PlayerStats PS;
     PlayerCombat PCombat;
     PlayerComponents PComponents;
+    private bool playingSwimSound = false;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class PlayerControls : MonoBehaviour
         {
             PS.IsBursting = true;
             PComponents.GetPAnimator.SetTrigger("Big Swim");
+            AudioManager.PlaySound("Dodge");
             GetComponent<ParticleSystem>().Play();
             PS.CallStopBursting();
             PComponents.GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
@@ -70,16 +73,44 @@ public class PlayerControls : MonoBehaviour
     //PlayerMovement
     private void Update()
     {
+        
         //MOVE the player
         if (!PS.GetInAir && PS.IsMoving)
         {
             PComponents.GetPRigidBody.AddRelativeForce
                 (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
+            //}
+            
+        } 
+
+        if(!PS.GetInAir && PComponents.GetPRigidBody.velocity.magnitude > 1.5f)
+        {
+            if (!playingSwimSound)
+            {
+                InvokeRepeating("PlaySwimSound", 0.1f, 0.75f);
+                playingSwimSound = true;
+            }
+        }
+        else
+        {
+            CancelInvoke();
+            playingSwimSound = false;
+        }
+
+        if (PS.GetInAir && GetComponent<Rigidbody2D>().velocity.magnitude == 0)
+        {
+            PS.Damage(1000);
         }
     }
 
     private void OnStart()
     {
         //join the game
+    }
+
+    private void PlaySwimSound()
+    {
+        Debug.Log("Playing Sound");
+        AudioManager.PlaySound("Swim");
     }
 }
