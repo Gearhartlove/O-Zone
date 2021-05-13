@@ -37,4 +37,20 @@ public class WaterBooster : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Rigidbody2D collisionRigidbody = collision.attachedRigidbody;
+        if (collisionRigidbody)
+        {
+            if (collisionRigidbody.velocity.y > minVelocity)
+            {
+                AudioManager.PlaySound("OzoneSplashUp");
+            }
+            else if (collisionRigidbody.velocity.y < -minVelocity)
+            {
+                AudioManager.PlaySound("OzoneSplashDown");
+            }
+        }
+    }
 }

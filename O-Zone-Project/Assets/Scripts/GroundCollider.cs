@@ -16,4 +16,38 @@ public class GroundCollider : MonoBehaviour
             PS.Damage(1000);
         }
     }
+
+    private ArrayList bumpedPlayers;
+    private GameObject playerToRemove;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        bumpedPlayers = new ArrayList();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !bumpedPlayers.Contains(collision.gameObject))
+        {
+            AudioManager.PlaySound("BumpLand");
+            bumpedPlayers.Add(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        playerToRemove = collision.gameObject;
+        Invoke("RemoveFromList", 1f);
+    }
+
+    private void RemoveFromList()
+    {
+        bumpedPlayers.Remove(playerToRemove);
+    }
 }

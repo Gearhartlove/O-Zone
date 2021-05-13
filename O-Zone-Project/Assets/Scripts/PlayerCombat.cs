@@ -55,11 +55,13 @@ public class PlayerCombat : MonoBehaviour
         {
             NewExplosion = Instantiate(Explosion, transform.GetChild(0).position, transform.rotation);
             NewExplosion.GetComponent<Animator>().SetTrigger("Activate");
+            AudioManager.PlaySound("Melee");
         }
         else
         {
             GameObject newFruit = Instantiate(Fruit, transform.GetChild(0).position, transform.rotation);
-            Vector2 ShootSpeed = new Vector2(0, ProjectileSpeed);
+            AudioManager.PlaySound("Ranged");
+            Vector2 ShootSpeed = new Vector2(0, ProjectileSpeed + PC.GetPRigidBody.velocity.magnitude);
             newFruit.GetComponent<Rigidbody2D>().AddRelativeForce(ShootSpeed);
             newFruit.GetComponent<Fruit>().SetAttackingPlayer(PC.GetPGameObject);
         }
