@@ -5,18 +5,24 @@ using UnityEngine;
 namespace Manager
 {
     /// <summary>
-    /// user interface to access all other managers
+    /// User interface to access all other managers.
     /// </summary>
     public class Game_Manager : MonoBehaviour
     {
+        private static Game_Manager gameManager;
         static Scene_Manager sceneManager;
         static PlayerManager playerManager;
 
         private void Awake()
         {
+            //prevent more than one manager from ever exsiting 
+            DontDestroyOnLoad(this.gameObject);
+            if (gameManager == null) gameManager = this;
+            else { Destroy(this.gameObject); }
+
             sceneManager = GetComponent<Scene_Manager>();
             playerManager = GetComponent<PlayerManager>();
-            DontDestroyOnLoad(this.gameObject);
+
         }
 
         public static Scene_Manager GetSM => sceneManager;

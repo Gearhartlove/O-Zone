@@ -152,6 +152,10 @@ public class PlayerStats : MonoBehaviour
         set
         {
             currentHealth = value;
+            if (currentHealth == MaxHealth)
+            {
+                GetComponent<Animator>().SetInteger("Health", currentHealth);
+            }
             if (currentHealth != MaxHealth)
             {
                 if (!IsDead)
@@ -160,7 +164,6 @@ public class PlayerStats : MonoBehaviour
                     {
                         GetComponent<Animator>().SetInteger("Health", currentHealth);
                         GetComponent<Animator>().SetTrigger("Damaged");
-                        Debug.Log(IsDead);
                         IsDead = true;
                         KillPlayer();
                         return;

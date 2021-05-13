@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 using static Manager.Game_Manager;
 
 public class Scene_Manager : MonoBehaviour
-{ 
+{
+    static PlayerManager PM;
     [SerializeField] Canvas UICanvas;
     [SerializeField] Stage[] StageArray;
     int Tm_length;
     [SerializeField] int[] TilemapChecker;
 
-    private void Start()
+    private void Awake()
     {
+        PM = GetComponent<PlayerManager>();
         Tm_length = StageArray.Length;
         TilemapChecker = new int[Tm_length];
         //CurrentTileMap = 
@@ -36,10 +38,9 @@ public class Scene_Manager : MonoBehaviour
     //load random stage
     public static void LoadStage()
     {
-        PlayerManager.DeadCount = 0;
-        PlayerManager.ResetPlayers();  //reset health
+        PM.ResetPlayers();  //reset health
         SceneManager.LoadScene(1);
-        PlayerManager.SpawnOctos();    //spawn players
+        PM.SpawnOctos();    //spawn players
 
         //RANDOM STAGE LOGIC
             //SpawnOctos();

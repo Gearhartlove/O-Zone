@@ -35,8 +35,7 @@ public class PlayerControls : MonoBehaviour
     }
 
     private void OnEastButton()
-    {
-        Scene_Manager.LoadStage(); //TODO get rid of after
+    { 
     }
 
     private void OnSouthButton()
@@ -96,11 +95,6 @@ public class PlayerControls : MonoBehaviour
             CancelInvoke();
             playingSwimSound = false;
         }
-
-        if (PS.GetInAir && GetComponent<Rigidbody2D>().velocity.magnitude == 0)
-        {
-            PS.Damage(1000);
-        }
     }
 
     private void OnStart()
@@ -110,7 +104,6 @@ public class PlayerControls : MonoBehaviour
 
     private void PlaySwimSound()
     {
-        Debug.Log("Playing Sound");
         AudioManager.PlaySound("Swim");
     }
 }

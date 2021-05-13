@@ -16,7 +16,7 @@ public class StartZone : MonoBehaviour
 
     private void Update()
     {
-       if (InZone && PInZone == GetPM.PCount)
+       if (InZone && PInZone == PlayerManager.PCount)
        {
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
