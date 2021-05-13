@@ -6,8 +6,6 @@ public class SafeZone : MonoBehaviour
 {
     [SerializeField] GameObject DeathParticles;
     [SerializeField] Camera MainCamera;
-
-    private GameObject RecentDeathParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +28,10 @@ public class SafeZone : MonoBehaviour
             Vector3 CameraCenter = MainCamera.transform.position;
             Vector3 collisionPosition = collision.transform.position;
             float DeathParticleRotation = Vector3.Angle(collisionPosition, CameraCenter);
+            Debug.Log(DeathParticleRotation);
             Quaternion DeathParticleQuaternion = Quaternion.Euler(0, 0, DeathParticleRotation);
-            RecentDeathParticles = Instantiate(DeathParticles, collision.transform.position, DeathParticleQuaternion);
-            if (RecentDeathParticles.transform.position.x < 0)
-            {
-                RecentDeathParticles.transform.up = Vector3.right;
-            } else
-            {
-                RecentDeathParticles.transform.up = Vector3.left;
-            }
+            Instantiate(DeathParticles, collision.transform.position, DeathParticleQuaternion);
+
         } else if (collision.CompareTag("Projectile"))
         {
             collision.GetComponent<Fruit>().DestroyFruit();

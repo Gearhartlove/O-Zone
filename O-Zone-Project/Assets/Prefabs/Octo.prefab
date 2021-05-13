@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3c5654fb50b4409af95aaa91512644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlineMaterial: {fileID: 2100000, guid: b8a700a09ebd1204f8589fb68329b326, type: 2}
 --- !u!114 &3383888405562523817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +273,7 @@ MonoBehaviour:
   Explosion: {fileID: 648031808520922507, guid: eb9b579e4fac5614582e8e5ece0d12cf, type: 3}
   Fruit: {fileID: 791504419140853032, guid: fe9bc9850dc2ac34e8d3c41c68d0db69, type: 3}
   SlowSpeed: 800
-  ProjectileSpeed: 700
+  ProjectileSpeed: 800
   AttackDuration: 0.25
 --- !u!198 &8047606801107057238
 ParticleSystem:
