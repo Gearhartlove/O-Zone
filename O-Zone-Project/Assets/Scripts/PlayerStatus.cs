@@ -18,6 +18,7 @@ public class PlayerStatus : MonoBehaviour
     public static void StunAttackingPlayer(GameObject player)
     {
         player.GetComponent<PlayerStats>().IsStunned = true;
+        AudioManager.PlaySound("Stunned");
         //add stun functionality (AKA don't give players input ability)
         player.GetComponent<PlayerInput>().DeactivateInput();
         player.GetComponent<Animator>().SetTrigger("Stunned");

@@ -152,10 +152,6 @@ public class PlayerStats : MonoBehaviour
         set
         {
             currentHealth = value;
-            if (currentHealth == MaxHealth)
-            {
-                GetComponent<Animator>().SetInteger("Health", currentHealth);
-            }
             if (currentHealth != MaxHealth)
             {
                 if (!IsDead)
@@ -164,6 +160,7 @@ public class PlayerStats : MonoBehaviour
                     {
                         GetComponent<Animator>().SetInteger("Health", currentHealth);
                         GetComponent<Animator>().SetTrigger("Damaged");
+                        Debug.Log(IsDead);
                         IsDead = true;
                         KillPlayer();
                         return;
@@ -199,6 +196,7 @@ public class PlayerStats : MonoBehaviour
             PlayerStatus.StunAttackingPlayer(player);
             return;
         }
+        AudioManager.PlaySound("Damaged");
         CurrentHealth -= damageAmount;
         Fruit.ApplyFruitKnockback(gameObject, knockback);       
     }
@@ -211,7 +209,8 @@ public class PlayerStats : MonoBehaviour
             //Stun attacking player
             PlayerStatus.StunAttackingPlayer(player);
             return;         
-        } 
+        }
+        AudioManager.PlaySound("Damaged");
         CurrentHealth -= damageAmount;
     }
 
@@ -219,11 +218,13 @@ public class PlayerStats : MonoBehaviour
     public void Damage(int damageAmount)
     {
         //ignore defense, stage kills anyway
+        AudioManager.PlaySound("Damaged");
         CurrentHealth -= damageAmount;
     }
 
     public void KillPlayer()
     {
+        AudioManager.PlaySound("Death");
         GetComponent<PlayerInput>().DeactivateInput();
         PlayerManager.DeadCount++;
     }

@@ -13,7 +13,7 @@ public class GroundCollider : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStats>();
             Rigidbody2D RB =
                 collision.gameObject.GetComponent<Rigidbody2D>();
-            if (PS.GetInAir && RB.velocity.magnitude > Mathf.Epsilon)
+            if (PS.GetInAir && RB.velocity.magnitude > Mathf.Epsilon && PS.CurrentHealth > 0)
             {
                 PS.Damage(1000);
             }
@@ -38,7 +38,7 @@ public class GroundCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !bumpedPlayers.Contains(collision.gameObject))
         {
-            AudioManager.PlaySound("BumpLand");
+            AudioManager.PlaySound("Collision2");
             bumpedPlayers.Add(collision.gameObject);
         }
     }

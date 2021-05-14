@@ -27,7 +27,7 @@ public class Fruit : MonoBehaviour
 
     public void DestroyFruit()
     {
-        AudioManager.PlaySound("FruitImpact");
+        AudioManager.PlaySound("Projectile_Collision3");
         FruitHitbox.enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<ParticleSystem>().Play();

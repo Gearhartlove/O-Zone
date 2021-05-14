@@ -60,7 +60,7 @@ public class PlayerCombat : MonoBehaviour
         else
         {
             GameObject newFruit = Instantiate(Fruit, transform.GetChild(0).position, transform.rotation);
-            AudioManager.PlaySound("Ranged");
+            AudioManager.PlaySound("Projectile3");
             Vector2 ShootSpeed = new Vector2(0, ProjectileSpeed + PC.GetPRigidBody.velocity.magnitude);
             newFruit.GetComponent<Rigidbody2D>().AddRelativeForce(ShootSpeed);
             newFruit.GetComponent<Fruit>().SetAttackingPlayer(PC.GetPGameObject);
