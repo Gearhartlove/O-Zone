@@ -3734,6 +3734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreBoardCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4195617316140663174, guid: 9312d0ce71bce404d85d6c043c705ac2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5579247223151239242, guid: 9312d0ce71bce404d85d6c043c705ac2, type: 3}
       propertyPath: m_IsActive
       value: 0

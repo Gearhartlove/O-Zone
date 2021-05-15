@@ -44,7 +44,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (PArray == null)
         {
-            Debug.Log("new array");
             PArray = new GameObject[4];
         }
 
