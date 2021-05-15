@@ -127,12 +127,26 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] bool isDead;
     [SerializeField] bool AttackCooldown = false;
     [SerializeField] private int MaxHealth = 2;
-    private int currentHealth;
     public bool IsDead
     {
         get { return isDead; }
         set { isDead = value; }
     }
+    [SerializeField] private float InvincibilityTimer;
+    [SerializeField] bool invincible;
+    public bool Invincible
+    {
+        get { return invincible; }
+        set
+        {
+            invincible = value;
+            if (invincible)
+            {
+                Invoke("EndInvincibility", InvincibilityTimer);
+            }
+        }
+    }
+    private int currentHealth;
     public int CurrentHealth
     {
         get { return currentHealth; }
@@ -159,10 +173,19 @@ public class PlayerStats : MonoBehaviour
                     }
                     GetComponent<Animator>().SetInteger("Health", currentHealth);
                     GetComponent<Animator>().SetTrigger("Damaged");
+                    Invincible = true;
                 }   
             }
         }
     }
+
+    private void EndInvincibility()
+    {
+        Debug.Log("Invincible End");
+        Invincible = false;
+    }
+
+    private GameObject attackedByPlayer;
 
     public bool GetAttackCooldown => AttackCooldown;
 
@@ -186,6 +209,10 @@ public class PlayerStats : MonoBehaviour
             PlayerStatus.StunAttackingPlayer(player);
             return;
         }
+        else if (Invincible)
+        {
+            return;
+        }
         AudioManager.PlaySound("Damaged");
         CurrentHealth -= damageAmount;
         Fruit.ApplyFruitKnockback(gameObject, knockback);       
@@ -199,6 +226,10 @@ public class PlayerStats : MonoBehaviour
             //Stun attacking player
             PlayerStatus.StunAttackingPlayer(player);
             return;         
+        }
+        else if (Invincible)
+        {
+            return;
         }
         AudioManager.PlaySound("Damaged");
         CurrentHealth -= damageAmount;
