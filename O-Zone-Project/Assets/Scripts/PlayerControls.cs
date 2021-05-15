@@ -19,6 +19,34 @@ public class PlayerControls : MonoBehaviour
         PComponents = GetComponent<PlayerComponents>();
     }
 
+    //PlayerMovement
+    private void Update()
+    {
+
+        //MOVE the player
+        if (!PS.GetInAir && PS.IsMoving)
+        {
+            PComponents.GetPRigidBody.AddRelativeForce
+                (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
+            //}
+
+        }
+
+        if (!PS.GetInAir && PComponents.GetPRigidBody.velocity.magnitude > 1.5f)
+        {
+            if (!playingSwimSound)
+            {
+                InvokeRepeating("PlaySwimSound", 0.1f, 0.75f);
+                playingSwimSound = true;
+            }
+        }
+        else
+        {
+            CancelInvoke();
+            playingSwimSound = false;
+        }
+    }
+
     private void OnWestButton()
     {
         //BURST : fast set movement in water, small pause afterwords
@@ -32,10 +60,6 @@ public class PlayerControls : MonoBehaviour
             PS.CallStopBursting();
             PComponents.GetPRigidBody.AddRelativeForce(Vector2.up * PS.BurstSpeed);          
         }
-    }
-
-    private void OnEastButton()
-    { 
     }
 
     private void OnSouthButton()
@@ -67,39 +91,6 @@ public class PlayerControls : MonoBehaviour
         }
 
         
-    }
-
-    //PlayerMovement
-    private void Update()
-    {
-        
-        //MOVE the player
-        if (!PS.GetInAir && PS.IsMoving)
-        {
-            PComponents.GetPRigidBody.AddRelativeForce
-                (Vector2.up * PS.GetMovementSpeed * Time.deltaTime);
-            //}
-            
-        } 
-
-        if(!PS.GetInAir && PComponents.GetPRigidBody.velocity.magnitude > 1.5f)
-        {
-            if (!playingSwimSound)
-            {
-                InvokeRepeating("PlaySwimSound", 0.1f, 0.75f);
-                playingSwimSound = true;
-            }
-        }
-        else
-        {
-            CancelInvoke();
-            playingSwimSound = false;
-        }
-    }
-
-    private void OnStart()
-    {
-        //join the game
     }
 
     private void PlaySwimSound()

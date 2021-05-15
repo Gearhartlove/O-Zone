@@ -11,24 +11,25 @@ public class PlayerStats : MonoBehaviour
         SetHealth();
     }
 
-    //Movement + Physics values
-    [SerializeField] float RotationSpeed = 8f;
+    //Movement + Physics variables
     [SerializeField] float MovementSpeed = 8f;
-    [SerializeField] float MaximumSpeed = 10f; //de-serialize later TODO
     float TempSpeed; //used to change speed
     bool isMoving = false;
+    private bool inWaterBooster = false;
+    [SerializeField] float burstSpeed = 80000;
+
+    //Movement + Physics Properties
     public bool IsMoving
     {
         get { return isMoving; }
         set { isMoving = value; }
     }
-
-    [SerializeField] float burstSpeed = 80000;
+    
     public float BurstSpeed
     {
         get { return burstSpeed; }
     }
-    private bool inWaterBooster = false;
+    
     public bool InWaterBooster
     {
         get { return inWaterBooster; }
@@ -36,17 +37,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //-------------------------------------------------------------
-    //SceneLogic
-    int round_win_count;
-    [SerializeField] bool InAir = false;
-
-
-    public void RoundWin() { round_win_count++; }
-
-    //-------------------------------------------------------------
     //rotation
-    public float GetRotationSpeed => RotationSpeed;
-    public float GetMaxSpeed => MaximumSpeed;
     public float GetAngle(Vector2 me, Vector2 target)
     {
         //math for rotating spoon
@@ -102,56 +93,58 @@ public class PlayerStats : MonoBehaviour
     //-------------------------------------------------------------
     //Defensive / stun information
     [SerializeField] bool isDefensive = false;
-    [SerializeField] float defenseCD = 1f;
+    [SerializeField] float defenseCD = 1f; //time invincible
     [SerializeField] bool isStunned = false;
     [SerializeField] float stunLength = 1f;
+    public float DEFENSECD { get { return defenseCD; } }
+    public float StunLength { get { return stunLength; } }
     public bool IsDefensive
     {
         get { return isDefensive; }
         set { isDefensive = value; }
     }
-    public float DEFENSECD { get { return defenseCD; } }
-
     public bool IsStunned
     {
         get { return isStunned; }
         set { isStunned = value; }
     }
-    public float StunLength {  get { return stunLength; } }
-
     public void StopDefense()
     {
         IsDefensive = false;
     }
-
-
     //-------------------------------------------------------------
-    //Terrain
+    //Terrain variables
+    [SerializeField] bool InAir = false;
     public bool GetInAir => InAir;
 
     public void SetInAir(bool change)
     {
         InAir = change;
     }
-
     //-------------------------------------------------------------
-    // Combat Values
+    // Combat variables
     [SerializeField] float AttackCooldownTime;
     [SerializeField] bool isDead;
+    [SerializeField] bool AttackCooldown = false;
+    [SerializeField] private int MaxHealth = 2;
+    private int currentHealth;
     public bool IsDead
     {
         get { return isDead; }
         set { isDead = value; }
     }
-    [SerializeField] bool AttackCooldown = false;
-    [SerializeField] private int MaxHealth = 2;
-    private int currentHealth;
     public int CurrentHealth
     {
         get { return currentHealth; }
         set
         {
             currentHealth = value;
+            //used when Octo's respawn and are set to max HP
+            if (currentHealth == MaxHealth)
+            {
+                GetComponent<Animator>().SetInteger("Health", currentHealth);
+            }
+            //used when Octo's are damaged
             if (currentHealth != MaxHealth)
             {
                 if (!IsDead)
@@ -160,7 +153,6 @@ public class PlayerStats : MonoBehaviour
                     {
                         GetComponent<Animator>().SetInteger("Health", currentHealth);
                         GetComponent<Animator>().SetTrigger("Damaged");
-                        Debug.Log(IsDead);
                         IsDead = true;
                         KillPlayer();
                         return;
@@ -171,8 +163,6 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-
-    private GameObject attackedByPlayer;
 
     public bool GetAttackCooldown => AttackCooldown;
 
@@ -187,7 +177,7 @@ public class PlayerStats : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-    //Fruit Damaging a player?
+    //Fruit Damaging a player
     public void Damage(int damageAmount, GameObject player, Vector2 knockback)
     {
         if (IsDefensive)
