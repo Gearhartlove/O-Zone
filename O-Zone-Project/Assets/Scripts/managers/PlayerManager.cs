@@ -21,8 +21,10 @@ public class PlayerManager : MonoBehaviour
         get { return deadCount; }
         set
         {
+            
             //else
-            deadCount = value;
+            deadCount++;
+            
             //special case for only one player
             if (pCount == 1)
             {
@@ -32,8 +34,8 @@ public class PlayerManager : MonoBehaviour
             }
             if (deadCount == pCount - 1) //one player left alive
             {
+                Debug.Log("Death Count: " + deadCount);
                 //LoadNewScene
-                deadCount = 0;
                 Scene_Manager.LoadStage();
             }
         }
@@ -77,13 +79,19 @@ public class PlayerManager : MonoBehaviour
                 PArray[i].GetComponent<PlayerStats>();
             Rigidbody2D RB =
                 PArray[i].GetComponent<Rigidbody2D>();
+            Animator ANIM =
+                PArray[i].GetComponent<Animator>();
 
             PS.SetInAir(false);
             PS.IsDead = false;
             PS.GetComponent<PlayerInput>().ActivateInput();
             PS.SetHealth();
+            //death animation state to normal idle animation state
+            ANIM.Play("Idle");
             //return octo to water
             RB.gravityScale = 0f;
+
+            deadCount = 0;
             
             
         }
