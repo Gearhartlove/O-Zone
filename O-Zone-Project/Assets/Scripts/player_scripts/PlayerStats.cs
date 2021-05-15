@@ -181,7 +181,6 @@ public class PlayerStats : MonoBehaviour
 
     private void EndInvincibility()
     {
-        Debug.Log("Invincible End");
         Invincible = false;
     }
 
