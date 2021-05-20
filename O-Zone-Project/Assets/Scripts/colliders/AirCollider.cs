@@ -12,7 +12,9 @@ public class AirCollider : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
             Vector3 ParticlePosition = collision.transform.position;
-            Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+            GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+            ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
+            mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y);
         }
         else if (collision.tag == "Projectile") { }
 
@@ -34,6 +36,8 @@ public class AirCollider : MonoBehaviour
             collision.attachedRigidbody.gravityScale = 0.3f;
         }
         Vector3 ParticlePosition = collision.transform.position;
-        Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+        GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+        ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
+        mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y);
     }
 }

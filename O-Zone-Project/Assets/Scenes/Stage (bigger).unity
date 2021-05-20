@@ -3912,6 +3912,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2251856593113719586, guid: 581275a27afc2ac45a106767c5947b01, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416101646969452249, guid: 581275a27afc2ac45a106767c5947b01, type: 3}
+      propertyPath: m_Volume
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416101646969452249, guid: 581275a27afc2ac45a106767c5947b01, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f62caf0248c957c418377012ca02164b, type: 3}
+    - target: {fileID: 5416101646969452249, guid: 581275a27afc2ac45a106767c5947b01, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 581275a27afc2ac45a106767c5947b01, type: 3}
 --- !u!1 &1609321885 stripped
@@ -3934,7 +3950,7 @@ MonoBehaviour:
   Palette1: {fileID: 2800000, guid: db00abeb4b60d95468e7f50871da7479, type: 3}
   Palette2: {fileID: 2800000, guid: 8ab3f57bc1a0eaa4a8319d24fff11978, type: 3}
   Palette3: {fileID: 2800000, guid: 75877b11b9ece6b40a235228567ecf6d, type: 3}
-  Palette4: {fileID: 2800000, guid: 7cf4ac46227fc314daee9a893906e5ec, type: 3}
+  Palette4: {fileID: 2800000, guid: 0a484cd1c6c2dc044943664e1c5775d1, type: 3}
 --- !u!1 &1637926615
 GameObject:
   m_ObjectHideFlags: 0

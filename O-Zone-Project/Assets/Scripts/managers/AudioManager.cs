@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
+    private static GameObject AM;
     private static AudioClip Sound;
 
     private static AudioSource AudioSFX;
@@ -13,6 +13,16 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        /* if (AM == null)
+        {
+            AM = gameObject;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(this); */
         AudioSource[] sources = GetComponents<AudioSource>();
         AudioSFX = sources[0];
         Ambience = sources[1];

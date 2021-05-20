@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 8047606801107057238}
   - component: {fileID: 8076880286975615632}
   - component: {fileID: 5830122894172216592}
+  - component: {fileID: 1554066593625570459}
   m_Layer: 3
   m_Name: Octo
   m_TagString: Player
@@ -185,23 +186,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a88ed071a8142998e26f51fb44ecc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 8
   MovementSpeed: 1400
-  MaximumSpeed: 20
   burstSpeed: 420
-  InAir: 0
   slowOctoCD: 1
   burstSlow: 450
   isDefensive: 0
-  defenseCD: 1
+  defenseCD: 0.8
   isStunned: 0
-  stunLength: 1
-  AttackCooldownTime: 1
+  stunLength: 10
+  InAir: 0
+  AttackCooldownTime: 0.8
   isDead: 0
-  InvincibilityTimer: 0.65
-  invincible: 0
   AttackCooldown: 0
   MaxHealth: 2
+  InvincibilityTimer: 0.65
+  invincible: 0
 --- !u!114 &7242350220973229653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +275,7 @@ MonoBehaviour:
   Fruit: {fileID: 791504419140853032, guid: fe9bc9850dc2ac34e8d3c41c68d0db69, type: 3}
   SlowSpeed: 800
   ProjectileSpeed: 700
-  AttackDuration: 0.25
+  AttackDuration: 0.1
 --- !u!198 &8047606801107057238
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5061,7 +5060,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95854dda2dc84d4ba653da4355bb919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StunLength: 0.25
+  StunLength: 0.75
+--- !u!114 &1554066593625570459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702836810906472117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de5c384441c03344ab6419a26733dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7781591935191791938
 GameObject:
   m_ObjectHideFlags: 0

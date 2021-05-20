@@ -11,7 +11,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private GameObject Fruit;
     [SerializeField] private float SlowSpeed;
     [SerializeField] private float ProjectileSpeed;
-    [SerializeField] private float AttackDuration = 0.1f;
+    [SerializeField] private float AttackDuration;
+
     private float StoredSpeed;
 
     private GameObject NewExplosion;
@@ -31,7 +32,7 @@ public class PlayerCombat : MonoBehaviour
         }
         PC.GetPAnimator.SetTrigger("Attack");
         PC.GetPStats.SetAttackCooldown(true);
-        Invoke("EndCooldown", 1.3f);
+        Invoke("EndCooldown", PC.GetPStats.AttackCooldownTime);
         Invoke("StartAttack", 0.35f);
 
         //burst takes precidence over attacking

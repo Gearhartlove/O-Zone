@@ -24,12 +24,12 @@ public class PlayerStats : MonoBehaviour
         get { return isMoving; }
         set { isMoving = value; }
     }
-    
+
     public float BurstSpeed
     {
         get { return burstSpeed; }
     }
-    
+
     public bool InWaterBooster
     {
         get { return inWaterBooster; }
@@ -66,7 +66,7 @@ public class PlayerStats : MonoBehaviour
     private float burstLength = 1f;
     [SerializeField] private float slowOctoCD = 1f;
     [SerializeField] private float burstSlow = 900f;
-    public float BURSTCD { get {return burstLength;} }
+    public float BURSTCD { get { return burstLength; } }
     public float BURSTSLOW { get { return burstSlow; } }
     public float SLOWOCTOCD { get { return slowOctoCD; } }
     public bool IsBursting
@@ -75,7 +75,7 @@ public class PlayerStats : MonoBehaviour
         set { isBursting = value; }
     }
 
-    private void StopBursting() => isBursting = false;  
+    private void StopBursting() => isBursting = false;
 
     public void BurstSlowOcto() => ChangeSpeed(TempSpeed);
 
@@ -123,7 +123,7 @@ public class PlayerStats : MonoBehaviour
     }
     //-------------------------------------------------------------
     // Combat variables
-    [SerializeField] float AttackCooldownTime;
+    [SerializeField] public float AttackCooldownTime;
     [SerializeField] bool isDead;
     [SerializeField] bool AttackCooldown = false;
     [SerializeField] private int MaxHealth = 2;
