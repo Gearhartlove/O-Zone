@@ -191,7 +191,7 @@ MonoBehaviour:
   slowOctoCD: 1
   burstSlow: 450
   isDefensive: 0
-  defenseCD: 0.8
+  defenseCD: 0.5
   isStunned: 0
   stunLength: 10
   InAir: 0
@@ -5060,7 +5060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95854dda2dc84d4ba653da4355bb919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StunLength: 0.75
+  StunLength: 0.65
 --- !u!114 &1554066593625570459
 MonoBehaviour:
   m_ObjectHideFlags: 0

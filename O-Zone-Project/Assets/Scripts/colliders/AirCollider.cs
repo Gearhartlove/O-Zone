@@ -11,10 +11,13 @@ public class AirCollider : MonoBehaviour
         if (collision.tag == "Player") 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
-            Vector3 ParticlePosition = collision.transform.position;
-            GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
-            ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
-            mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y);
+            if (Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
+            {
+                Vector3 ParticlePosition = collision.transform.position;
+                GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+                ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
+                mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y) * 1.5f;
+            }
         }
         else if (collision.tag == "Projectile") { }
 
@@ -35,9 +38,12 @@ public class AirCollider : MonoBehaviour
         else if (collision.tag == "Projectile") {
             collision.attachedRigidbody.gravityScale = 0.3f;
         }
-        Vector3 ParticlePosition = collision.transform.position;
-        GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
-        ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
-        mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y);
+        if (Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
+        {
+            Vector3 ParticlePosition = collision.transform.position;
+            GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+            ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
+            mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y) * 1.5f;
+        }
     }
 }
