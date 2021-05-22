@@ -93,6 +93,27 @@ public class PlayerControls : MonoBehaviour
         
     }
 
+    [SerializeField] float Taunt1Duration;
+    [SerializeField] float Taunt2Duration;
+
+    private void OnTaunt1()
+    {
+        if (!PS.IsBursting && !PS.IsDead && !PS.IsDefensive && !PS.IsStunned && !PCombat.GetIsAttacking())
+        {
+            PComponents.GetPAnimator.SetTrigger("Taunt1");
+            PComponents.GetPStats.Taunt(Taunt1Duration);
+        }
+    }
+
+    private void OnTaunt2()
+    {
+        if (!PS.IsBursting && !PS.IsDead && !PS.IsDefensive && !PS.IsStunned && !PCombat.GetIsAttacking())
+        {
+            PComponents.GetPAnimator.SetTrigger("Taunt2");
+            PComponents.GetPStats.Taunt(Taunt2Duration);
+        }
+    }
+
     private void PlaySwimSound()
     {
         AudioManager.PlaySound("Swim");

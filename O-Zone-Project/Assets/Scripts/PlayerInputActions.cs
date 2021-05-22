@@ -97,6 +97,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Taunt1"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0dfab73-f08a-41db-8db9-e10df3af4bf7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Taunt2"",
+                    ""type"": ""Button"",
+                    ""id"": ""622caeaf-17c9-4ba4-9d1c-b371c2bf9ac5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -209,6 +225,50 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""TempAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d440e34f-6ffa-4af9-bf80-06eb5e4094a6"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Taunt1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d11a845-e8a6-4b96-a94b-8f102396d12b"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Taunt1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""564f8992-4f46-469a-97ec-180709a9d8df"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Taunt2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd708f89-5cf2-47d4-8b16-47b7a3d424a1"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Taunt2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +287,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControlsMap_LeftTrigger = m_PlayerControlsMap.FindAction("LeftTrigger", throwIfNotFound: true);
         m_PlayerControlsMap_RightTrigger = m_PlayerControlsMap.FindAction("RightTrigger", throwIfNotFound: true);
         m_PlayerControlsMap_TempAction = m_PlayerControlsMap.FindAction("TempAction", throwIfNotFound: true);
+        m_PlayerControlsMap_Taunt1 = m_PlayerControlsMap.FindAction("Taunt1", throwIfNotFound: true);
+        m_PlayerControlsMap_Taunt2 = m_PlayerControlsMap.FindAction("Taunt2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -286,6 +348,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControlsMap_LeftTrigger;
     private readonly InputAction m_PlayerControlsMap_RightTrigger;
     private readonly InputAction m_PlayerControlsMap_TempAction;
+    private readonly InputAction m_PlayerControlsMap_Taunt1;
+    private readonly InputAction m_PlayerControlsMap_Taunt2;
     public struct PlayerControlsMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -300,6 +364,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @LeftTrigger => m_Wrapper.m_PlayerControlsMap_LeftTrigger;
         public InputAction @RightTrigger => m_Wrapper.m_PlayerControlsMap_RightTrigger;
         public InputAction @TempAction => m_Wrapper.m_PlayerControlsMap_TempAction;
+        public InputAction @Taunt1 => m_Wrapper.m_PlayerControlsMap_Taunt1;
+        public InputAction @Taunt2 => m_Wrapper.m_PlayerControlsMap_Taunt2;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControlsMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -339,6 +405,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @TempAction.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
                 @TempAction.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
                 @TempAction.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTempAction;
+                @Taunt1.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt1;
+                @Taunt1.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt1;
+                @Taunt1.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt1;
+                @Taunt2.started -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt2;
+                @Taunt2.performed -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt2;
+                @Taunt2.canceled -= m_Wrapper.m_PlayerControlsMapActionsCallbackInterface.OnTaunt2;
             }
             m_Wrapper.m_PlayerControlsMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +445,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @TempAction.started += instance.OnTempAction;
                 @TempAction.performed += instance.OnTempAction;
                 @TempAction.canceled += instance.OnTempAction;
+                @Taunt1.started += instance.OnTaunt1;
+                @Taunt1.performed += instance.OnTaunt1;
+                @Taunt1.canceled += instance.OnTaunt1;
+                @Taunt2.started += instance.OnTaunt2;
+                @Taunt2.performed += instance.OnTaunt2;
+                @Taunt2.canceled += instance.OnTaunt2;
             }
         }
     }
@@ -389,5 +467,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnTempAction(InputAction.CallbackContext context);
+        void OnTaunt1(InputAction.CallbackContext context);
+        void OnTaunt2(InputAction.CallbackContext context);
     }
 }

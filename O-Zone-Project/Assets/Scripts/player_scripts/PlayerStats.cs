@@ -248,4 +248,19 @@ public class PlayerStats : MonoBehaviour
         GetComponent<PlayerInput>().DeactivateInput();
         PlayerManager.DeadCount++;
     }
+
+    public bool isTaunting = false;
+
+    public void Taunt(float duration)
+    {
+        isTaunting = true;
+        Invoke("EndTaunt", duration);
+        GetComponent<PlayerInput>().DeactivateInput();
+    }
+
+    public void EndTaunt()
+    {
+        GetComponent<PlayerInput>().ActivateInput();
+        isTaunting = false;
+    }
 }
