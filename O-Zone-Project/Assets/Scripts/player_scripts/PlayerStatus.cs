@@ -35,6 +35,9 @@ public class PlayerStatus : MonoBehaviour
     public void StopStun()
     {
         StunnedPlayer.GetComponent<PlayerStats>().IsStunned = false;
-        StunnedPlayer.GetComponent<PlayerInput>().ActivateInput();
+        if (!StunnedPlayer.GetComponent<PlayerStats>().IsDead)
+        {
+            StunnedPlayer.GetComponent<PlayerInput>().ActivateInput();
+        }
     }
 }
