@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     //FIELDS
     //Privatef
     //player array
-    [SerializeField] static GameObject[] PArray;
+    [SerializeField]public static GameObject[] PArray;
     [SerializeField] static Stage stage;
     private static int pCount = 0;
     private static int deadCount = 0;
@@ -104,4 +104,5 @@ public class PlayerManager : MonoBehaviour
             PArray[i].transform.position = stage.SpawnPoints[i].transform.position;
         }
     }
+
 }
