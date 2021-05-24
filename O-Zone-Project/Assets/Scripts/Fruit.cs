@@ -8,11 +8,13 @@ public class Fruit : MonoBehaviour
     [SerializeField] int AttackDamage = 1;
     [SerializeField] float Knockback;
     private GameObject AttackingPlayer;
+    private float StartTime;
 
     void Awake()
     {
         FruitHitbox = GetComponent<CircleCollider2D>();
         FruitHitbox.enabled = true;
+        StartTime = Time.time;
     }
 
     public void SetAttackingPlayer(GameObject Player)
@@ -35,6 +37,10 @@ public class Fruit : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.transform.gameObject == AttackingPlayer && Time.time - StartTime < 0.1f)
+        {
+            return;
+        }
         if (collision.collider.CompareTag("Player"))
         {
             Vector2 calculatedKnockback = Knockback * collision.GetContact(0).normal * -1;
