@@ -21,7 +21,7 @@ public class StartZone : MonoBehaviour
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
             if (slider.value == slider.maxValue)
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0); // need to fix this value TODO 
        }
        else
        {

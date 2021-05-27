@@ -12,7 +12,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] static Stage stage;
     private static int pCount = 0;
     private static int deadCount = 0;
-    //Public 
+
+    //Public
+    Scoreboard SB;
     //readonly property, public access to pCount
     public static int PCount {get{return pCount;}}
     //logic for restarting the game 
@@ -34,7 +36,6 @@ public class PlayerManager : MonoBehaviour
             }
             if (deadCount == pCount - 1) //one player left alive
             {
-                Debug.Log("Death Count: " + deadCount);
                 //LoadNewScene
                 Scene_Manager.LoadStage();
             }
@@ -49,7 +50,16 @@ public class PlayerManager : MonoBehaviour
             PArray = new GameObject[4];
         }
 
-        stage = GameObject.Find("TheStage").GetComponent<Stage>();
+        SB = GameObject.Find("ScoreBoardCanvas").GetComponent
+            <Scoreboard>();
+
+        //if not the main menu, find the stage
+        //NOTE: not the cleanest solution, will not work well with menuing
+        //and future content, bandade for now 
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+            != "MainMenu")
+            stage = GameObject.Find("Stage").GetComponent<Stage>();
+
     }
 
     private void OnPlayerJoined(PlayerInput player)
@@ -57,6 +67,9 @@ public class PlayerManager : MonoBehaviour
         PArray[PCount] = player.gameObject;
         GetComponent<ColorManager>().SwapPalette(player.gameObject, PCount);
         pCount++;
+
+        //Add player to scoreboard
+        SB.AddPlayerToScoreboard();
     }
 
     public static bool CheckAliveP()
@@ -91,9 +104,7 @@ public class PlayerManager : MonoBehaviour
             //return octo to water
             RB.gravityScale = 0f;
 
-            deadCount = 0;
-            
-            
+            deadCount = 0;    
         }
     }
 
@@ -103,6 +114,24 @@ public class PlayerManager : MonoBehaviour
         { 
             PArray[i].transform.position = stage.SpawnPoints[i].transform.position;
         }
+    }
+
+    public static int CheckWinner()
+    {
+        int player = 0;
+        //only one person
+        if (PCount == 1) { return 0; }
+        //more than 1 person
+        foreach (GameObject Octo in PArray)
+        {
+            if (Octo != null)
+            {
+                if (!Octo.GetComponent<PlayerStats>().IsDead)
+                    break;
+                player++;
+            }
+        }
+        return player;
     }
 
 }

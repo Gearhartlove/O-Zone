@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
+
         PS = GetComponent<PlayerStats>();
         PCombat = GetComponent<PlayerCombat>();
         PComponents = GetComponent<PlayerComponents>();

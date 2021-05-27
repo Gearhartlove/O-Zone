@@ -9,11 +9,10 @@ public class Scene_Manager : MonoBehaviour
 {
     static PlayerManager PM;
     static Scene_Manager SM;
-    [SerializeField] Canvas UICanvas;
     [SerializeField] Stage[] StageArray;
     int Tm_length;
     [SerializeField] int[] TilemapChecker;
-    private static float delay_after_death = 2f;
+    private static float delay_after_death = 1.5f;
 
     private void Awake()
     {
@@ -42,14 +41,22 @@ public class Scene_Manager : MonoBehaviour
     public static void LoadStage()
     {
         //call delay till the next round starts
-        SM.StartCoroutine(SM.Wait(delay_after_death)); 
+        SM.StartCoroutine(SM.EndOfRound(delay_after_death)); 
     }
 
-    public IEnumerator Wait(float wait_time)
+    public IEnumerator EndOfRound(float wait_time)
     {
-        yield return new WaitForSeconds(wait_time);
+        yield return new WaitForSeconds(wait_time); //wait after last death
+        if (!Scoreboard.IgnoreScoreboard) //for testing purposes
+        {
+            Scoreboard.ShowScoreboard(); //scoreboard UI, increment winner's crown count
+            yield return new WaitForSeconds(Scoreboard.GetScoreboard_Delay);
+            Scoreboard.HideScoreboard();
+        }
+        //Bring Up ScoreBoard
+        //wait again ScoreBoard.GetScoreboardDelay
         PM.ResetPlayers();  //reset health
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0); 
         PM.SpawnOctos();    //spawn players
     }
 }
