@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class octoPaletteSwapTest : MonoBehaviour
+public class UIPaletteSwap : MonoBehaviour
 {
     Texture2D mColorSwapTex;
     Color[] mSpriteColors;
 
-    SpriteRenderer mSpriteRenderer;
+    Image mSpriteRenderer;
 
     [SerializeField]
     private Texture2D SwapPalette;
 
     private void Awake()
     {
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        mSpriteRenderer = GetComponent<Image>();
         InitColorSwapTex();
     }
     // Start is called before the first frame update
@@ -79,8 +80,9 @@ public class octoPaletteSwapTest : MonoBehaviour
             colorSwapTex.SetPixel(i, 0, new Color(0.0f, 0.0f, 0.0f, 0.0f));
 
         colorSwapTex.Apply();
-
-        mSpriteRenderer.material.SetTexture("_SwapTex", colorSwapTex);
+        Material mat = Instantiate(mSpriteRenderer.material);
+        mat.SetTexture("_SwapTex", colorSwapTex);
+        mSpriteRenderer.material = mat;
 
         mSpriteColors = new Color[colorSwapTex.width];
         mColorSwapTex = colorSwapTex;
@@ -137,10 +139,5 @@ public class octoPaletteSwapTest : MonoBehaviour
     public void SetSwapPalette(Texture2D newPalette)
     {
         SwapPalette = newPalette;
-    }
-
-    public Texture2D GetSwapPalette()
-    {
-        return SwapPalette;
     }
 }

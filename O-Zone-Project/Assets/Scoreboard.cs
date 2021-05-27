@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using Manager;
 
 /// <summary>
@@ -64,7 +65,7 @@ public class Scoreboard : MonoBehaviour
     //Called in PlayerManager, when the Octo connects their controller
     //creates : ScoreboardOcto (parent) with ScoreboardPoints (children)
     //ScoreboardPoints depends on the GameplayRules.RoundCount amount
-    public void AddPlayerToScoreboard()
+    public void AddPlayerToScoreboard(PlayerInput player)
     {
         GameObject Octo = Instantiate(ScoreboardOctoPrefab);
         //add to Octo Array
@@ -82,6 +83,11 @@ public class Scoreboard : MonoBehaviour
         {
             SpawnScoreboardPoint(Octo, ref StartingPointPos, l);
         }
+
+        //Gets object from player input to match palettes
+        Texture2D playerPalette = player.gameObject.GetComponent<octoPaletteSwapTest>().GetSwapPalette();
+        Octo.GetComponent<UIPaletteSwap>().SetSwapPalette(playerPalette);
+
         //canvas group updates after each Octo is added
         canvas_group = GetComponent<CanvasGroup>();
     }

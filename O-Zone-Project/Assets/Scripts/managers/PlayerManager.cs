@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour
         pCount++;
 
         //Add player to scoreboard
-        SB.AddPlayerToScoreboard();
+        SB.AddPlayerToScoreboard(player);
     }
 
     public static bool CheckAliveP()

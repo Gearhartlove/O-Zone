@@ -41,6 +41,7 @@ public class Fruit : MonoBehaviour
         {
             return;
         }
+
         if (collision.collider.CompareTag("Player"))
         {
             Vector2 calculatedKnockback = Knockback * collision.GetContact(0).normal * -1;

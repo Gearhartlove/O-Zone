@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 455678025062420259}
   - component: {fileID: 455678025062420258}
   - component: {fileID: 455678025062420284}
+  - component: {fileID: 2054483140604007810}
   m_Layer: 5
   m_Name: ScoreboardOcto
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 63201b4f97841e2458d2488c75f5bbbc, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -88,3 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592c4421b124446cead9f0d6e31f24e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2054483140604007810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455678025062420256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2598654b9b2a55c4e81e33fd307db759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwapPalette: {fileID: 2800000, guid: 8ab3f57bc1a0eaa4a8319d24fff11978, type: 3}
