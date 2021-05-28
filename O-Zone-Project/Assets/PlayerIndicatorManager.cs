@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerIndicatorManager : MonoBehaviour
 {
-    private List<GameObject> Indicators;
+    private static List<GameObject> Indicators;
     [SerializeField] GameObject Indicator;
-
+    static Canvas canvas;
 
     // Start is called before the first frame update
     void Awake()
@@ -15,11 +15,23 @@ public class PlayerIndicatorManager : MonoBehaviour
         DontDestroyOnLoad(this);
         if (Indicators == null)
             Indicators = new List<GameObject>();
+        else { Destroy(gameObject); }
+
+        if (canvas == null)
+            canvas = gameObject.GetComponent<Canvas>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //camera resets each time a new scene is loaded, reassigns camera
+        //to the scene camera
+        if (canvas.worldCamera == null)
+        {
+            canvas.worldCamera = GameObject.Find("Main Camera")
+                .GetComponent<Camera>();
+        }
+
         for (int i = 0; i < PlayerManager.PCount; i++)
         {
             if (PlayerManager.PArray[i].GetComponent<PlayerStats>().CurrentHealth != 1)
@@ -41,7 +53,7 @@ public class PlayerIndicatorManager : MonoBehaviour
 
     public void AddPlayerIndicator()
     {
-        GameObject newIndicator = Instantiate(Indicator, transform);
+        GameObject newIndicator = Instantiate(Indicator, transform, false);
         Indicators.Add(newIndicator);
     }
 }

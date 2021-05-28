@@ -33,7 +33,7 @@ public class Scoreboard : MonoBehaviour
         //initialize if X does not already exist 
         DontDestroyOnLoad(this);
         if (SB == null) SB = this;
-        else { Destroy(this); }
+        else { Destroy(this.gameObject); }
         if (ScoreboardOctos == null)
             ScoreboardOctos = new List<ScoreboardOcto>();
         PM = Game_Manager.GetPM;
