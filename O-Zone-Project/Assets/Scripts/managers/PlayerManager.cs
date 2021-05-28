@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     //Public
     Scoreboard SB;
+    PlayerIndicatorManager PIndicatorManager;
     //readonly property, public access to pCount
     public static int PCount {get{return pCount;}}
     //logic for restarting the game 
@@ -52,6 +53,7 @@ public class PlayerManager : MonoBehaviour
 
         SB = GameObject.Find("ScoreBoardCanvas").GetComponent
             <Scoreboard>();
+        PIndicatorManager = GameObject.Find("PlayerIndicatorCanvas").GetComponent<PlayerIndicatorManager>();
 
         //if not the main menu, find the stage
         //NOTE: not the cleanest solution, will not work well with menuing
@@ -70,6 +72,7 @@ public class PlayerManager : MonoBehaviour
 
         //Add player to scoreboard
         SB.AddPlayerToScoreboard(player);
+        PIndicatorManager.AddPlayerIndicator();
     }
 
     public static bool CheckAliveP()
