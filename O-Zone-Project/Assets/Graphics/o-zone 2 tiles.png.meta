@@ -179,6 +179,147 @@ TextureImporter:
   - first:
       213: 9094277894468014432
     second: o-zone 2 tiles_58
+  - first:
+      213: 5147768227142645383
+    second: o-zone 2 tiles_59
+  - first:
+      213: 7381449224918158924
+    second: o-zone 2 tiles_60
+  - first:
+      213: 7502449596276150086
+    second: o-zone 2 tiles_61
+  - first:
+      213: -8701931507034118230
+    second: o-zone 2 tiles_62
+  - first:
+      213: 76222903361613138
+    second: o-zone 2 tiles_63
+  - first:
+      213: -1810912208465637624
+    second: o-zone 2 tiles_64
+  - first:
+      213: 3627348277754559581
+    second: o-zone 2 tiles_65
+  - first:
+      213: -4516000642538458862
+    second: o-zone 2 tiles_66
+  - first:
+      213: -5711105390222166162
+    second: o-zone 2 tiles_67
+  - first:
+      213: -5526278042935941597
+    second: o-zone 2 tiles_68
+  - first:
+      213: 7909013571440789617
+    second: o-zone 2 tiles_69
+  - first:
+      213: 8323263484184829448
+    second: o-zone 2 tiles_70
+  - first:
+      213: -2142946510409088539
+    second: o-zone 2 tiles_71
+  - first:
+      213: -4043054301333537384
+    second: o-zone 2 tiles_72
+  - first:
+      213: -1144396748080672554
+    second: o-zone 2 tiles_73
+  - first:
+      213: -5453216848727967929
+    second: o-zone 2 tiles_74
+  - first:
+      213: -3286682326064126676
+    second: o-zone 2 tiles_75
+  - first:
+      213: -2663799730802411937
+    second: o-zone 2 tiles_76
+  - first:
+      213: 2945657075902631198
+    second: o-zone 2 tiles_77
+  - first:
+      213: 3090034181526398449
+    second: o-zone 2 tiles_78
+  - first:
+      213: -7456067051399854797
+    second: o-zone 2 tiles_79
+  - first:
+      213: 649361473682595016
+    second: o-zone 2 tiles_80
+  - first:
+      213: 922175750272311793
+    second: o-zone 2 tiles_81
+  - first:
+      213: -5198883093557069154
+    second: o-zone 2 tiles_82
+  - first:
+      213: -5763566054174953757
+    second: o-zone 2 tiles_83
+  - first:
+      213: 4738577073233957021
+    second: o-zone 2 tiles_84
+  - first:
+      213: 6126656437841155541
+    second: o-zone 2 tiles_85
+  - first:
+      213: 2686703671865458608
+    second: o-zone 2 tiles_86
+  - first:
+      213: 3323579858807439350
+    second: o-zone 2 tiles_87
+  - first:
+      213: 3957981627119927643
+    second: o-zone 2 tiles_88
+  - first:
+      213: 3965078178501609380
+    second: o-zone 2 tiles_89
+  - first:
+      213: 3121627632771051051
+    second: o-zone 2 tiles_90
+  - first:
+      213: -4690466631643792519
+    second: o-zone 2 tiles_91
+  - first:
+      213: -8152108701015156706
+    second: o-zone 2 tiles_92
+  - first:
+      213: 208100605890022148
+    second: o-zone 2 tiles_93
+  - first:
+      213: -505409083332389601
+    second: o-zone 2 tiles_94
+  - first:
+      213: -6441506150391868656
+    second: o-zone 2 tiles_95
+  - first:
+      213: -5161173263449606794
+    second: o-zone 2 tiles_96
+  - first:
+      213: -2068164561919017573
+    second: o-zone 2 tiles_97
+  - first:
+      213: 5233584210577681652
+    second: o-zone 2 tiles_98
+  - first:
+      213: 2980912987378500733
+    second: o-zone 2 tiles_99
+  - first:
+      213: 1384659695764495431
+    second: o-zone 2 tiles_100
+  - first:
+      213: 3702254347201015314
+    second: o-zone 2 tiles_101
+  - first:
+      213: 8414471932007491505
+    second: o-zone 2 tiles_102
+  - first:
+      213: 7578999640618800553
+    second: o-zone 2 tiles_103
+  - first:
+      213: -8857362370442838204
+    second: o-zone 2 tiles_104
+  - first:
+      213: -9049644076371807375
+    second: o-zone 2 tiles_105
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1345,8 +1486,8 @@ TextureImporter:
       name: o-zone 2 tiles_50
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 80
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1366,8 +1507,8 @@ TextureImporter:
       name: o-zone 2 tiles_51
       rect:
         serializedVersion: 2
-        x: 16
-        y: 160
+        x: 96
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1387,8 +1528,8 @@ TextureImporter:
       name: o-zone 2 tiles_52
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
+        x: 112
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1408,8 +1549,8 @@ TextureImporter:
       name: o-zone 2 tiles_53
       rect:
         serializedVersion: 2
-        x: 48
-        y: 160
+        x: 128
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1429,8 +1570,8 @@ TextureImporter:
       name: o-zone 2 tiles_54
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
+        x: 144
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1450,8 +1591,8 @@ TextureImporter:
       name: o-zone 2 tiles_55
       rect:
         serializedVersion: 2
-        x: 48
-        y: 144
+        x: 160
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1471,8 +1612,8 @@ TextureImporter:
       name: o-zone 2 tiles_56
       rect:
         serializedVersion: 2
-        x: 64
-        y: 144
+        x: 0
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1492,8 +1633,8 @@ TextureImporter:
       name: o-zone 2 tiles_57
       rect:
         serializedVersion: 2
-        x: 48
-        y: 128
+        x: 16
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1513,8 +1654,8 @@ TextureImporter:
       name: o-zone 2 tiles_58
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 32
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1526,6 +1667,993 @@ TextureImporter:
       bones: []
       spriteID: 061147cbf8d553e70800000000000000
       internalID: 9094277894468014432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_59
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78631e4bdeb807740800000000000000
+      internalID: 5147768227142645383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_60
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e44d226fc207660800000000000000
+      internalID: 7381449224918158924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_61
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f005b782e0e1860800000000000000
+      internalID: 7502449596276150086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7a37f26678c3780800000000000000
+      internalID: -8701931507034118230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_63
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d2e96a35cce0100800000000000000
+      internalID: 76222903361613138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fccf6e0f85ed6e0800000000000000
+      internalID: -1810912208465637624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_65
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c7f244a0ee65230800000000000000
+      internalID: 3627348277754559581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2113f08a751f351c0800000000000000
+      internalID: -4516000642538458862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_67
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e673df408e31eb0b0800000000000000
+      internalID: -5711105390222166162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_68
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32623c04667be43b0800000000000000
+      internalID: -5526278042935941597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_69
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178c87180f572cd60800000000000000
+      internalID: 7909013571440789617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_70
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e11d25a0c228370800000000000000
+      internalID: 8323263484184829448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_71
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1476aa089b242e0800000000000000
+      internalID: -2142946510409088539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_72
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d3661b88f24e7c0800000000000000
+      internalID: -4043054301333537384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_73
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d01a8c88394e10f0800000000000000
+      internalID: -1144396748080672554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_74
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747f4602b284254b0800000000000000
+      internalID: -5453216848727967929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25a46986db5362d0800000000000000
+      internalID: -3286682326064126676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_76
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56bdbc1248480bd0800000000000000
+      internalID: -2663799730802411937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_77
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1dca47f08311e820800000000000000
+      internalID: 2945657075902631198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_78
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f522b567b102ea20800000000000000
+      internalID: 3090034181526398449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33541db458ab68890800000000000000
+      internalID: -7456067051399854797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_80
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccdca1e1def20900800000000000000
+      internalID: 649361473682595016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1e57f75f93ccc00800000000000000
+      internalID: 922175750272311793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_82
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a3fbb0f5bd9d7b0800000000000000
+      internalID: -5198883093557069154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_83
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eee66dd533b300b0800000000000000
+      internalID: -5763566054174953757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_84
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d909be6fdbec2c140800000000000000
+      internalID: 4738577073233957021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5d16ed191460550800000000000000
+      internalID: 6126656437841155541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf374a31c6194520800000000000000
+      internalID: 2686703671865458608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_87
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff3cd2c54abf1e20800000000000000
+      internalID: 3323579858807439350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_88
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b518100d1539de630800000000000000
+      internalID: 3957981627119927643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_89
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7cd307899c60730800000000000000
+      internalID: 3965078178501609380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_90
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2eac5cfacf325b20800000000000000
+      internalID: 3121627632771051051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b7c0e137d18eeb0800000000000000
+      internalID: -4690466631643792519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_92
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18de910454edde80800000000000000
+      internalID: -8152108701015156706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_93
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b4e93066253e200800000000000000
+      internalID: 208100605890022148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_94
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1597b1dd1d6cf8f0800000000000000
+      internalID: -505409083332389601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_95
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0131667e84c2b96a0800000000000000
+      internalID: -6441506150391868656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675b7df0344df58b0800000000000000
+      internalID: -5161173263449606794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_97
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9df3cdd9476c43e0800000000000000
+      internalID: -2068164561919017573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_98
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc639d5c1d61a840800000000000000
+      internalID: 5233584210577681652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_99
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d744b0781945e5920800000000000000
+      internalID: 2980912987378500733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_100
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cd7d438ac473310800000000000000
+      internalID: 1384659695764495431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21eef01a6bc016330800000000000000
+      internalID: 3702254347201015314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_102
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b72dcfe3a536c470800000000000000
+      internalID: 8414471932007491505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_103
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a595e394040e2960800000000000000
+      internalID: 7578999640618800553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_104
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fb7d63ad3541580800000000000000
+      internalID: -8857362370442838204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: o-zone 2 tiles_105
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173f32cd8a4396280800000000000000
+      internalID: -9049644076371807375
       vertices: []
       indices: 
       edges: []
