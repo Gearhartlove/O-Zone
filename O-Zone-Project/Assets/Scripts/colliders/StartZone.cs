@@ -16,17 +16,21 @@ public class StartZone : MonoBehaviour
 
     private void Update()
     {
-       if (InZone && PInZone == PlayerManager.PCount)
-       {
+        if (InZone && PInZone == PlayerManager.PCount)
+        {
             //increment progress bar
             slider.value += increment_value * Time.deltaTime;
             if (slider.value == slider.maxValue)
-                SceneManager.LoadScene(0); // need to fix this value TODO 
-       }
-       else
-       {
+            {
+                Debug.Log("ressting playes :)");
+                //loads the correct scene and puts players where they belong
+                //Scene_Manager.ResetPlayerStats(); TODO FIX
+            }
+        }
+        else
+        {
             slider.value -= decrement_value * Time.deltaTime;
-       }
+        }
 
     }
 

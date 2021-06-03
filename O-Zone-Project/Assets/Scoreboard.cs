@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Manager;
+using UnityEngine.EventSystems;
+using TMPro;
 
 /// <summary>
 /// All members pertaining to the Scoreboard are used in this script. The
@@ -18,7 +20,7 @@ public class Scoreboard : MonoBehaviour
     static Scoreboard SB;
     PlayerManager PM;
     static List<ScoreboardOcto> ScoreboardOctos;
-    [SerializeField] private static float scoreboard_delay = 4f;
+    [SerializeField] private static float scoreboard_delay = 2.5f;
     public static float GetScoreboard_Delay => scoreboard_delay;
     [SerializeField] GameObject StartingSpot;
     private Vector3 StartingOctoPos;
@@ -27,6 +29,15 @@ public class Scoreboard : MonoBehaviour
     Canvas canvas;
     static CanvasGroup canvas_group;
     public static bool IgnoreScoreboard = false;
+    public static bool IsGameOver = false;
+    //static Button mainMenuButton;
+    //public static Button MainMenuButton => mainMenuButton;
+    //private static TextMeshProUGUI MainMenuText;
+    static Button restartGameButton;
+    public static Button RestartGameButton => restartGameButton;
+    private static TextMeshProUGUI RestartGameText;
+    
+
 
     private void Awake()
     {
@@ -39,6 +50,22 @@ public class Scoreboard : MonoBehaviour
         PM = Game_Manager.GetPM;
         canvas = GetComponent<Canvas>();
         StartingOctoPos = StartingSpot.transform.position;
+        //buttons (need to be active)
+
+        //mainMenuButton = GameObject.Find("MainMenuButton").
+        //    GetComponent<Button>();
+        //if (MainMenuText == null)
+        //    MainMenuText = MainMenuButton.GetComponentInChildren<TextMeshProUGUI>();
+        //MainMenuText.gameObject.SetActive(false);
+        //mainMenuButton.interactable = false;
+
+
+        restartGameButton = GameObject.Find("RestartGameButton").
+            GetComponent<Button>();
+        if (RestartGameText == null)
+            RestartGameText = RestartGameButton.GetComponentInChildren<TextMeshProUGUI>();
+        RestartGameText.gameObject.SetActive(false);
+        restartGameButton.interactable = false;
     }
 
     //Called by ShowScoreboard(), increments points and triggers crown anim
@@ -49,17 +76,19 @@ public class Scoreboard : MonoBehaviour
         //check if the Octo won the round
         if (ScoreboardOctos[winner].GetPointScore == GameplayRules.RoundCount)
         {
-            Winner(ScoreboardOctos[winner]);
+            IsGameOver = true;
         }
-
     }
 
     //Called by WinARound, when an Octo wins the game (max amount of rounds)
-    public static void Winner(ScoreboardOcto winner)
+    //presents options to restart the round or 
+    public static void Winner()
     {
-        //trigger winning animation
-        //winner.animator.Play("WinningAnimation");
-        //TODO Prompt players to play again or return to main menu
+        //MainMenuButton.interactable = true;
+        //MainMenuText.gameObject.SetActive(true);
+        RestartGameButton.interactable = true;
+        RestartGameText.gameObject.SetActive(true);
+        SelectRestartButton();
     }
 
     //Called in PlayerManager, when the Octo connects their controller
@@ -112,4 +141,27 @@ public class Scoreboard : MonoBehaviour
     }
 
     public static void HideScoreboard() => canvas_group.alpha = 0f;
+
+    public static void ResetScoreboard()
+    {
+        IsGameOver = false;
+        foreach (ScoreboardOcto octo in ScoreboardOctos)
+        {
+            octo.ResetPoints();
+            for (int i = 0; i < GameplayRules.RoundCount; i++)
+            {
+                octo.DecrementPoint(i); 
+            }
+        }
+    }
+
+    //selects button once an Octo has won 
+    public static void SelectRestartButton()
+    {
+        EventSystem e = GameObject.Find("EventSystem").
+         GetComponent<EventSystem>();
+        e.SetSelectedGameObject(RestartGameButton.
+            gameObject);
+    }
 }
+

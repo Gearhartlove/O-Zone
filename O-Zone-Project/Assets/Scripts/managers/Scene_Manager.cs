@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
-using static Manager.Game_Manager;
 
 public class Scene_Manager : MonoBehaviour
 {
@@ -24,18 +23,38 @@ public class Scene_Manager : MonoBehaviour
         //CurrentTileMap = 
     }
 
+    //connected to the MainMenuButton
     public void LoadMainMenu()
     {
+        Debug.Log("Main Menu Loading");
         //load the main menu
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void StartGame()
+    public static void NewGame()
     {
-        //>> placholder : animation to start game
-        //load first stage
-        SceneManager.LoadScene(1);
-        //load game with all Octo's round counts at 0
+        SM.StartCoroutine(SM.RestartGame());
     }
+
+    public void PrepareNextRound()
+    {
+        Scoreboard.HideScoreboard();
+        SceneManager.LoadScene(0); //TODO Fix
+        Countdown.StartCountdown(); //Start Countdown into game
+        PM.DisablePlayerControls();
+        PM.SpawnOctos();    //spawn players
+        PM.ResetPlayerStats();
+    }
+
+    //connected to the RestartGameButton
+    public IEnumerator RestartGame()
+    {
+        PrepareNextRound();
+        Scoreboard.ResetScoreboard();
+        yield return new WaitForSeconds(Countdown.GetCountdown_Delay);
+        PM.ResetPlayerControls();
+    }
+
 
     //load random stage
     public static void LoadStage()
@@ -44,19 +63,26 @@ public class Scene_Manager : MonoBehaviour
         SM.StartCoroutine(SM.EndOfRound(delay_after_death)); 
     }
 
+    //Interacts with scoreboard to present the Scoreboard UI after each round 
     public IEnumerator EndOfRound(float wait_time)
     {
         yield return new WaitForSeconds(wait_time); //wait after last death
         if (!Scoreboard.IgnoreScoreboard) //for testing purposes
         {
             Scoreboard.ShowScoreboard(); //scoreboard UI, increment winner's crown count
-            yield return new WaitForSeconds(Scoreboard.GetScoreboard_Delay);
-            Scoreboard.HideScoreboard();
         }
-        //Bring Up ScoreBoard
-        //wait again ScoreBoard.GetScoreboardDelay
-        PM.ResetPlayers();  //reset health
-        SceneManager.LoadScene(0); 
-        PM.SpawnOctos();    //spawn players
+        if (!Scoreboard.IsGameOver)
+        {
+            yield return new WaitForSeconds(Scoreboard.GetScoreboard_Delay);
+            PrepareNextRound();
+            yield return new WaitForSeconds(Countdown.GetCountdown_Delay);  
+            PM.ResetPlayerControls();
+        }
+        //else game is over do you want to restart the game?
+        else
+        {
+            yield return new WaitForSeconds(Scoreboard.GetScoreboard_Delay);
+            Scoreboard.Winner();
+        }
     }
 }

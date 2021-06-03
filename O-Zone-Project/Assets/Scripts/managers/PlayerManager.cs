@@ -8,8 +8,8 @@ public class PlayerManager : MonoBehaviour
     //FIELDS
     //Privatef
     //player array
-    [SerializeField]public static GameObject[] PArray;
-    [SerializeField] static Stage stage;
+    public static GameObject[] PArray;
+    [SerializeField] Stage CurrentStage; //remove later TODO
     private static int pCount = 0;
     private static int deadCount = 0;
 
@@ -51,17 +51,15 @@ public class PlayerManager : MonoBehaviour
             PArray = new GameObject[4];
         }
 
+        //if (CurrentStage == null)
+        //{
+        //    Stage.Assign_Stage(CurrentStage);
+        //    GrabStage();
+        //}
+
         SB = GameObject.Find("ScoreBoardCanvas").GetComponent
             <Scoreboard>();
         PIndicatorManager = GameObject.Find("PlayerIndicatorCanvas").GetComponent<PlayerIndicatorManager>();
-
-        //if not the main menu, find the stage
-        //NOTE: not the cleanest solution, will not work well with menuing
-        //and future content, bandade for now 
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-            != "MainMenu")
-            stage = GameObject.Find("Stage").GetComponent<Stage>();
-
     }
 
     private void OnPlayerJoined(PlayerInput player)
@@ -87,7 +85,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     //set hp to full
-    public void ResetPlayers()
+    public void ResetPlayerStats()
     {
         for (int i = 0; i < pCount; i++)
         {
@@ -100,7 +98,6 @@ public class PlayerManager : MonoBehaviour
 
             PS.SetInAir(false);
             PS.IsDead = false;
-            PS.GetComponent<PlayerInput>().ActivateInput();
             PS.SetHealth();
             //death animation state to normal idle animation state
             ANIM.Play("Idle");
@@ -111,11 +108,24 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void ResetPlayerControls()
+    {
+        for (int i = 0; i < pCount; i++)
+        {
+            PlayerStats PS =
+                PArray[i].GetComponent<PlayerStats>();
+            PS.GetComponent<PlayerInput>().ActivateInput();
+        }
+    }
+
+
     public void SpawnOctos()
     {
         for (int i = 0; i < pCount; i++)
-        { 
-            PArray[i].transform.position = stage.SpawnPoints[i].transform.position;
+        {
+            PArray[i].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            PArray[i].GetComponent<Rigidbody2D>().angularVelocity = 0f;
+            PArray[i].transform.position = CurrentStage.SpawnPoints[i].transform.position;
         }
     }
 
@@ -137,4 +147,13 @@ public class PlayerManager : MonoBehaviour
         return player;
     }
 
+    public void DisablePlayerControls()
+    {
+        for (int i = 0; i < pCount; i++)
+        {
+            PlayerStats PS =
+                PArray[i].GetComponent<PlayerStats>();
+            PS.GetComponent<PlayerInput>().DeactivateInput();
+        }
+    }
 }
