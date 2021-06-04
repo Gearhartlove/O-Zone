@@ -23,17 +23,12 @@ public class Scene_Manager : MonoBehaviour
         //CurrentTileMap = 
     }
 
-    //connected to the MainMenuButton
+    //connected to the MainMenu Button
     public void LoadMainMenu()
     {
         Debug.Log("Main Menu Loading");
         //load the main menu
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public static void NewGame()
-    {
-        SM.StartCoroutine(SM.RestartGame());
     }
 
     public void PrepareNextRound()
@@ -47,6 +42,12 @@ public class Scene_Manager : MonoBehaviour
     }
 
     //connected to the RestartGameButton
+    public static void NewGame()
+    {
+        SM.StartCoroutine(SM.RestartGame());
+    }
+
+    //Called by NewGame()
     public IEnumerator RestartGame()
     {
         PrepareNextRound();
@@ -55,8 +56,8 @@ public class Scene_Manager : MonoBehaviour
         PM.ResetPlayerControls();
     }
 
-
-    //load random stage
+    //static method which calss EndOfRound
+    //called by DeadCount Parameter in DeadCount
     public static void LoadStage()
     {
         //call delay till the next round starts
