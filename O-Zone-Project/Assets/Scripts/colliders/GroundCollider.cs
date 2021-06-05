@@ -5,20 +5,6 @@ using UnityEngine;
 public class GroundCollider : MonoBehaviour
 {
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            PlayerStats PS =
-                collision.gameObject.GetComponent<PlayerStats>();
-            Rigidbody2D RB =
-                collision.gameObject.GetComponent<Rigidbody2D>();
-            if (PS.GetInAir && RB.velocity.magnitude > Mathf.Epsilon && PS.CurrentHealth > 0)
-            {
-                PS.Damage(1000);
-            }
-        }
-    }
 
     private ArrayList bumpedPlayers;
     private GameObject playerToRemove;
@@ -40,6 +26,21 @@ public class GroundCollider : MonoBehaviour
         {
             AudioManager.PlaySound("Collision2");
             bumpedPlayers.Add(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerStats PS =
+                collision.gameObject.GetComponent<PlayerStats>();
+            Rigidbody2D RB =
+                collision.gameObject.GetComponent<Rigidbody2D>();
+            if (!PS.GetInWater && RB.velocity.magnitude < Mathf.Epsilon && PS.CurrentHealth > 0)
+            {
+                PS.Damage(1000);
+            }
         }
     }
 

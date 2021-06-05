@@ -121,6 +121,14 @@ public class PlayerStats : MonoBehaviour
     {
         InAir = change;
     }
+
+    [SerializeField] bool InWater = true;
+    public bool GetInWater => InWater;
+
+    public void SetInWater(bool change)
+    {
+        InWater = change;
+    }
     //-------------------------------------------------------------
     // Combat variables
     [SerializeField] public float AttackCooldownTime;

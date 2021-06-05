@@ -63,3 +63,6 @@ TagManager:
   - name: Top Level UI
     uniqueID: 4241763253
     locked: 0
+  - name: Side Bars
+    uniqueID: 1628334121
+    locked: 0
