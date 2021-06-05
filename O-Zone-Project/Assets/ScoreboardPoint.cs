@@ -14,6 +14,11 @@ public class ScoreboardPoint : MonoBehaviour
 
     public void ScorePoint()
     {
-        animator.SetTrigger("ScorePoint");
+        animator.Play("Crown_Win");
+    }
+
+    public void LosePoint()
+    {
+        animator.Play("Crown_Empty");
     }
 }

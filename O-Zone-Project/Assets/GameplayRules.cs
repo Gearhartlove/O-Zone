@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class GameplayRules : MonoBehaviour
 {
-    private static int rounds = 5;
+    private static int rounds = 3;
     public static int RoundCount => rounds;
 }
