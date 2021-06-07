@@ -11,7 +11,11 @@ namespace Manager
     {
         private static Game_Manager gameManager;
         static Scene_Manager sceneManager;
+        public static Scene_Manager GetSM => sceneManager;
         static PlayerManager playerManager;
+        public static PlayerManager GetPM => playerManager;
+        static StageManager stageManager;
+        public static  StageManager GetStageManager => stageManager;
 
         private void Awake()
         {
@@ -22,13 +26,11 @@ namespace Manager
 
             sceneManager = GetComponent<Scene_Manager>();
             playerManager = GetComponent<PlayerManager>();
+            stageManager = GetComponent<StageManager>();
 
         }
 
-        public static Scene_Manager GetSM => sceneManager;
-        public static PlayerManager GetPM => playerManager;
-
-        public static int GenRN(int BoundedBy)
+        public static int GetRandomNumber(int BoundedBy)
         {
             //Generate a random number between 0 an BoundedBy
             return Random.Range(0, BoundedBy);
