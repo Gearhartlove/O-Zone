@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using Manager;
 
 public class Scene_Manager : MonoBehaviour
 {
@@ -28,13 +29,13 @@ public class Scene_Manager : MonoBehaviour
     {
         Debug.Log("Main Menu Loading");
         //load the main menu
-        SceneManager.LoadScene("MainMenu");
+        Game_Manager.GetStageManager.LoadMainMenu();
     }
 
     public void PrepareNextRound()
     {
         Scoreboard.HideScoreboard();
-        SceneManager.LoadScene(0); //TODO Fix
+        Game_Manager.GetStageManager.LoadStageRandom();
         Countdown.StartCountdown(); //Start Countdown into game
         PM.DisablePlayerControls();
         PM.SpawnOctos();    //spawn players

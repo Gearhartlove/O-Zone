@@ -11,7 +11,7 @@ public class AirCollider : MonoBehaviour
         if (collision.tag == "Player") 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
-            Debug.Log("Set In Air");
+            //Debug.Log("Set In Air");
             if (Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
             {
                 Vector3 ParticlePosition = collision.transform.position;
@@ -34,7 +34,7 @@ public class AirCollider : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
-            Debug.Log("Set In Water");
+            //Debug.Log("Set In Water");
             collision.attachedRigidbody.gravityScale = 0;
         }
         else if (collision.tag == "Projectile") {

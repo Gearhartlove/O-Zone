@@ -4,16 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using Manager;
 
 public class StageManager : MonoBehaviour
 {
-    //array of stages to add too
-    //-> Main Menu will always be index 0
-    //??try to loop through the SceneBuilder
-    //and find how many of each stage -> not hardcoded
-
-    //Note: string[] lines = File.ReadAllLines(@"Assets/StoryBeats/dialogue1.txt");
-
+    //setting up stage types
     private String[] STAGE_TYPES;
 
     private List<String>[] my_stages; //debugging purposes
@@ -43,13 +38,10 @@ public class StageManager : MonoBehaviour
         };
 
         SeperateStages();
-        PrintStages();
 
-        //delete after
-        SceneManager.LoadScene(evil_list[0]);
+        //TODO initial stage type > make UI for later 
+        CurrentStageType = beach_list; 
     }
-
-    private int GetTotalSceneCount => SceneManager.sceneCountInBuildSettings;
 
     private void SeperateStages()
     {
@@ -95,9 +87,12 @@ public class StageManager : MonoBehaviour
 
     private void DetermineStageType(string stage_name)
     {
-        if (stage_name.StartsWith("evil")) evil_list.Add(stage_name);
-        else if (stage_name.StartsWith("beach")) beach_list.Add(stage_name);
-        else if (stage_name.StartsWith("rocky")) rocky_list.Add(stage_name);
+        if (stage_name.StartsWith("evil") || stage_name.StartsWith("Evil"))
+            evil_list.Add(stage_name);
+        else if (stage_name.StartsWith("beach") || stage_name.StartsWith("Beach"))
+            beach_list.Add(stage_name);
+        else if (stage_name.StartsWith("rocky") || stage_name.StartsWith("Rocky"))
+            rocky_list.Add(stage_name);
     }
 
     //Debugging purposes
@@ -112,4 +107,28 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------
+    //LoadingStages
+    private List<string> CurrentStageType;
+    public  List<string> GetCurrentStageList => CurrentStageType;
+
+    //changed in the main menu when playes hit a button on the 
+    public void ChangeStageType(List<string> stage_type)
+    {
+        CurrentStageType = stage_type;
+    }
+
+    public void LoadStageRandom()
+    {
+        int random_number = Game_Manager.GetRandomNumber(GetCurrentStageList.Count);
+        Debug.Log(random_number);
+        SceneManager.LoadScene(GetCurrentStageList[random_number]);
+    }
+
+    public void LoadMainMenu()
+    {
+        //disconect all of the players and reset all information
+        //TODO ^ 
+        SceneManager.LoadScene("MainMenu");
+    }
 }
