@@ -121,7 +121,6 @@ public class StageManager : MonoBehaviour
     public void LoadStageRandom()
     {
         int random_number = Game_Manager.GetRandomNumber(GetCurrentStageList.Count);
-        Debug.Log(random_number);
         SceneManager.LoadScene(GetCurrentStageList[random_number]);
     }
 
