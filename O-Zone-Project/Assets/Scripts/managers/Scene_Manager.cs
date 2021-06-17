@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
+using Manager;
 
 public class Scene_Manager : MonoBehaviour
 {
@@ -23,23 +24,18 @@ public class Scene_Manager : MonoBehaviour
         //CurrentTileMap = 
     }
 
-    //connected to the MainMenuButton
+    //connected to the MainMenu Button
     public void LoadMainMenu()
     {
         Debug.Log("Main Menu Loading");
         //load the main menu
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public static void NewGame()
-    {
-        SM.StartCoroutine(SM.RestartGame());
+        Game_Manager.GetStageManager.LoadMainMenu();
     }
 
     public void PrepareNextRound()
     {
         Scoreboard.HideScoreboard();
-        SceneManager.LoadScene(0); //TODO Fix
+        Game_Manager.GetStageManager.LoadStageRandom();
         Countdown.StartCountdown(); //Start Countdown into game
         PM.DisablePlayerControls();
         PM.SpawnOctos();    //spawn players
@@ -47,6 +43,12 @@ public class Scene_Manager : MonoBehaviour
     }
 
     //connected to the RestartGameButton
+    public static void NewGame()
+    {
+        SM.StartCoroutine(SM.RestartGame());
+    }
+
+    //Called by NewGame()
     public IEnumerator RestartGame()
     {
         PrepareNextRound();
@@ -55,8 +57,8 @@ public class Scene_Manager : MonoBehaviour
         PM.ResetPlayerControls();
     }
 
-
-    //load random stage
+    //static method which calss EndOfRound
+    //called by DeadCount Parameter in DeadCount
     public static void LoadStage()
     {
         //call delay till the next round starts

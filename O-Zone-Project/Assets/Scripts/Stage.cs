@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Each stage is associated with a scene, which are stored in StageManager.
+/// The Stage class will hold the information specific to each stage. This
+/// includes the spawn points and . . .
+/// </summary>
 public class Stage : MonoBehaviour
 {
     public GameObject[] SpawnPoints;
     static Stage stage;
-    //NOTE: 
-    //not sure how static will interact with multiple stages
-    //when loading, I think it will be fine
-    public Stage GetStage => stage;
-    [SerializeField] Tilemap TileMap_;
 
     private void Awake()
     {
-        if (stage == null)
-        {
-            stage = GetComponent<Stage>();
-        }
+        if (stage == null) stage = GetComponent<Stage>();
     }
 
-    public static Stage Assign_Stage(Stage stageREF)
-        => stage;
     //for debugging purposes
     public void DB_PrintSpawns()
     {

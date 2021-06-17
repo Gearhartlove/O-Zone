@@ -115,7 +115,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &702836810906472121
@@ -4949,6 +4949,7 @@ MonoBehaviour:
   isStunned: 0
   stunLength: 10
   InAir: 0
+  InWater: 1
   AttackCooldownTime: 0.8
   isDead: 0
   AttackCooldown: 0
