@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_AssetsPPU: 16
   m_RefResolutionX: 224
   m_RefResolutionY: 168
-  m_UpscaleRT: 1
+  m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
@@ -2780,8 +2780,58 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 6.2829447
       objectReference: {fileID: 0}
+    - target: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+--- !u!1 &1503333087776253171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503333086416648480, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+  m_PrefabInstance: {fileID: 1503333087776253170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1503333087776253172 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1503333086416648487, guid: 46dda9c1a15d54171964f1f5bee2e10c, type: 3}
+  m_PrefabInstance: {fileID: 1503333087776253170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!66 &1503333087776253173
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503333087776253171}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1503333087776253172}
+    m_ColliderPaths:
+    - - X: 98066659
+        Y: 4251623
+      - X: 98066659
+        Y: 121407272
+      - X: -41925508
+        Y: 121406979
+      - X: -41925215
+        Y: 4251623
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 9.806637, y: 0.42516232}
+      - {x: 9.806637, y: 12.140727}
+      - {x: -4.1925507, y: 12.140669}
+      - {x: -4.192492, y: 0.42516232}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1001 &1757026956298747062
 PrefabInstance:
   m_ObjectHideFlags: 0

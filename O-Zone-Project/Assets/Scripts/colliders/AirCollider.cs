@@ -11,11 +11,13 @@ public class AirCollider : MonoBehaviour
         if (collision.tag == "Player") 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(true);
-            Debug.Log("Set In Air");
             if (Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
             {
                 Vector3 ParticlePosition = collision.transform.position;
-                GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+                ContactPoint2D[] contacts = new ContactPoint2D[1];
+                collision.GetContacts(contacts);
+                Quaternion CollisionNormal = Quaternion.Euler(contacts[0].normal);
+                GameObject particles = Instantiate(WaterParticles, ParticlePosition, CollisionNormal);
                 ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
                 mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y) * 1.5f;
             }
@@ -34,7 +36,6 @@ public class AirCollider : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
-            Debug.Log("Set In Water");
             collision.attachedRigidbody.gravityScale = 0;
         }
         else if (collision.tag == "Projectile") {
@@ -43,7 +44,10 @@ public class AirCollider : MonoBehaviour
         if (collision.attachedRigidbody && Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
         {
             Vector3 ParticlePosition = collision.transform.position;
-            GameObject particles = Instantiate(WaterParticles, ParticlePosition, Quaternion.Euler(0, 1, 0));
+            ContactPoint2D[] contacts = new ContactPoint2D[1];
+            collision.GetContacts(contacts);
+            Quaternion CollisionNormal = Quaternion.Euler(contacts[0].normal);
+            GameObject particles = Instantiate(WaterParticles, ParticlePosition, CollisionNormal);
             ParticleSystem.MainModule mainModule = particles.GetComponent<ParticleSystem>().main;
             mainModule.startSpeed = Mathf.Abs(collision.attachedRigidbody.velocity.y) * 1.5f;
         }

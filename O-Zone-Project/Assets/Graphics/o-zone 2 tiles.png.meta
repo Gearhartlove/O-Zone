@@ -320,6 +320,12 @@ TextureImporter:
   - first:
       213: -9049644076371807375
     second: o-zone 2 tiles_105
+  - first:
+      213: 2054372328741394807
+    second: o-zone 2 tiles_106
+  - first:
+      213: -6893386314380402960
+    second: o-zone 2 tiles_107
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
