@@ -1593,7 +1593,6 @@ MonoBehaviour:
   - {fileID: 45209065}
   - {fileID: 285130879}
   - {fileID: 676532750}
-  TileMap_: {fileID: 0}
 --- !u!4 &1039163437
 Transform:
   m_ObjectHideFlags: 0
