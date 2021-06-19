@@ -1548,7 +1548,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: ed309cf5f217be647bdcc4c9da3e8a9c, type: 2}
   m_TargetDisplay: 0
@@ -2892,7 +2892,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 19
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 6
       m_TileObjectToInstantiateIndex: 65535
@@ -3022,7 +3022,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 6
       m_TileObjectToInstantiateIndex: 65535
@@ -3195,10 +3195,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 12
     m_Data: {fileID: 5289702899383202100, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 5623166383912661158, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -5268765773161531286, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2460846787869401459, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
   - m_RefCount: 1
@@ -3207,9 +3207,9 @@ Tilemap:
     m_Data: {fileID: 3522149023167745138, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
   - m_RefCount: 36
     m_Data: {fileID: -7597790879338480840, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 8193100211620605737, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 926258897350887724, guid: cfd720c17be62fc4595c35e4e5dc2ce1, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 82
@@ -3436,6 +3436,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1776270130241872642, guid: 814b343b3671e4336ae4a4f0ea60d8a9, type: 3}
   m_PrefabInstance: {fileID: 1818010500}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1428865134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428865135}
+  - component: {fileID: 1428865138}
+  - component: {fileID: 1428865137}
+  - component: {fileID: 1428865136}
+  m_Layer: 5
+  m_Name: CountdownAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1428865135
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428865134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1440040282}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1428865136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428865134}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0cc09c7fc6383924a9ebc72ddd04a4e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1428865137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428865134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 6192697346026721577, guid: 7b0d481ab076b774b976055e5c121a85, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1428865138
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428865134}
+  m_CullTransparentMesh: 1
 --- !u!1 &1439292774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,6 +3563,11 @@ Transform:
   m_Father: {fileID: 312248160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1440040282 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8338159476352132836, guid: e8fd5092af3b3426ab03acfd03148b0e, type: 3}
+  m_PrefabInstance: {fileID: 4263571375527941600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1607733553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3625,7 +3725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1738559196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4256,6 +4356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 744053235, guid: e8fd5092af3b3426ab03acfd03148b0e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 744053237, guid: e8fd5092af3b3426ab03acfd03148b0e, type: 3}
       propertyPath: m_text
       value: 3
@@ -4264,6 +4368,10 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4263571375527941604, guid: e8fd5092af3b3426ab03acfd03148b0e, type: 3}
+      propertyPath: countdownAnimation
+      value: 
+      objectReference: {fileID: 1428865137}
     - target: {fileID: 5784924703577439905, guid: e8fd5092af3b3426ab03acfd03148b0e, type: 3}
       propertyPath: m_Name
       value: CountdownCanvas

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Countdown : MonoBehaviour
     public static float GetCountdown_Delay => countdown_delay;
     private float TempTimer = 0f;
     [SerializeField] TMPro.TextMeshProUGUI countdown_text;
+    [SerializeField] Image countdownAnimation;
 
     private void Awake()
     {

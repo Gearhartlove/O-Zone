@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 5830122894172216592}
   - component: {fileID: 1554066593625570459}
   - component: {fileID: 136535912838451674}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Octo
   m_TagString: Player
   m_Icon: {fileID: 0}

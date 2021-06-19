@@ -27,6 +27,7 @@ public class AirCollider : MonoBehaviour
         if (collision.tag == "Player" || collision.tag == "Projectile")
         {
             collision.attachedRigidbody.gravityScale = 4.5f;
+            collision.gameObject.layer = 3;
         }
         
     }
@@ -37,9 +38,11 @@ public class AirCollider : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerStats>().SetInAir(false);
             collision.attachedRigidbody.gravityScale = 0;
+            collision.gameObject.layer = 6;
         }
         else if (collision.tag == "Projectile") {
             collision.attachedRigidbody.gravityScale = 0.3f;
+            collision.gameObject.layer = 6;
         }
         if (collision.attachedRigidbody && Mathf.Abs(collision.attachedRigidbody.velocity.y) > 1.5f)
         {
