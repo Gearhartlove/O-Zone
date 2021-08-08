@@ -11,14 +11,38 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Archived/MainMenu.unity
     guid: 43122ae8f7c8a4aa2adabf8f577bad13
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Archived/evil-Test.unity
-    guid: 2e034222cfaa3d54e9383b11e30ac338
+    path: Assets/Scenes/beach-Basic_Stage.unity
+    guid: 5a93cc5b8bc4f406a8226dd98d67f417
   - enabled: 1
-    path: Assets/Scenes/beach-default.unity
-    guid: 0ec39f52bb3944297816c9e8a13ce202
+    path: Assets/Scenes/beach-Burger.unity
+    guid: 4d984a8399276477197da462a4a7ba0e
   - enabled: 1
-    path: Assets/Scenes/beach-A.unity
-    guid: 63341b84101d0453da768b33045f236c
+    path: Assets/Scenes/beach-Cliffs.unity
+    guid: 45cdeae4cadcd409fa25a7430a842a72
+  - enabled: 1
+    path: Assets/Scenes/beach-Donut.unity
+    guid: ede213d377fcd4f7e837399f18e73b84
+  - enabled: 1
+    path: Assets/Scenes/beach-Four_Corners.unity
+    guid: ef7be063c4dc9461686649842fdae059
+  - enabled: 1
+    path: Assets/Scenes/beach-Garden.unity
+    guid: 120df1fcad4a24faf9c6ff8a918610e2
+  - enabled: 1
+    path: Assets/Scenes/beach-Highway.unity
+    guid: b9bcbe34043b547bfbdb2cc0f0974ab1
+  - enabled: 1
+    path: Assets/Scenes/beach-Pipeline.unity
+    guid: 2e755b16f51bb432384b8afbac36552f
+  - enabled: 1
+    path: Assets/Scenes/beach-Steps.unity
+    guid: f029d40b573d149a19b308c5fbd951a7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b221bd3015a51457886b1cdc506aa29e, type: 2}

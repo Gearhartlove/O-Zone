@@ -12,7 +12,7 @@ public class Countdown : MonoBehaviour
     static CanvasGroup canvas_group;
     //Variables
     public static bool StartTimer = false;
-    static float countdown_delay = 3f;
+    static float countdown_delay = 1.5f;
     public static float GetCountdown_Delay => countdown_delay;
     private float TempTimer = 0f;
     [SerializeField] TMPro.TextMeshProUGUI countdown_text;
@@ -25,14 +25,14 @@ public class Countdown : MonoBehaviour
         if (countdown == null) countdown = GetComponent<Countdown>();
         else { Destroy(gameObject); }
         if (canvas_group == null) canvas_group = GetComponent<CanvasGroup>();
-        animator = GetComponent<Animator>();
+        if (animator == null) animator = countdownAnimation.GetComponent<Animator>();
     }
 
     private void Update()
     {
         //only run when the Countdown timer has started
         //(after the scoreboard is hidden)
-        if (StartTimer)
+        /* if (StartTimer)
         {
             TempTimer += Time.deltaTime;
             if (TempTimer >= 3f)
@@ -61,13 +61,14 @@ public class Countdown : MonoBehaviour
                 countdown_text.fontSize = 80f;
                 //audio
             }
-        }
+        } */
     }
 
     public static void StartCountdown()
     {
         canvas_group.alpha = 1f;
         StartTimer = true;
+        animator.SetTrigger("Play");
     }
 
     public void StopCountdown()

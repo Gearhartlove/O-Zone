@@ -26,7 +26,7 @@ public class AirCollider : MonoBehaviour
 
         if (collision.tag == "Player" || collision.tag == "Projectile")
         {
-            collision.attachedRigidbody.gravityScale = 4.5f;
+            collision.attachedRigidbody.gravityScale = 6.0f;
             collision.gameObject.layer = 3;
         }
         

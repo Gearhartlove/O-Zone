@@ -22,7 +22,7 @@ public class StartZone : MonoBehaviour
             slider.value += increment_value * Time.deltaTime;
             if (slider.value == slider.maxValue)
             {
-                Debug.Log("ressting playes :)");
+                Scene_Manager.NewGame();
                 //loads the correct scene and puts players where they belong
                 //Scene_Manager.ResetPlayerStats(); TODO FIX
             }

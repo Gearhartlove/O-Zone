@@ -146,7 +146,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702836810906472117}
   serializedVersion: 7
-  lengthInSec: 0.1
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4941,12 +4941,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a88ed071a8142998e26f51fb44ecc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 1400
-  burstSpeed: 420
-  slowOctoCD: 1
-  burstSlow: 450
+  MovementSpeed: 1800
+  burstSpeed: 800
+  burstLength: 0.6
+  slowOctoCD: 0.5
+  burstSlow: 100
   isDefensive: 0
-  defenseCD: 0.5
+  defenseCD: 0.3
   isStunned: 0
   stunLength: 10
   InAir: 0
@@ -4985,7 +4986,7 @@ MonoBehaviour:
   Explosion: {fileID: 648031808520922507, guid: eb9b579e4fac5614582e8e5ece0d12cf, type: 3}
   Fruit: {fileID: 791504419140853032, guid: fe9bc9850dc2ac34e8d3c41c68d0db69, type: 3}
   SlowSpeed: 800
-  ProjectileSpeed: 700
+  ProjectileSpeed: 1000
   AttackDuration: 0.1
 --- !u!199 &8076880286975615632
 ParticleSystemRenderer:

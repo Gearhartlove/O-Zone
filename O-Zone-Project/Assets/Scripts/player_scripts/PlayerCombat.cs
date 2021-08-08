@@ -14,6 +14,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float AttackDuration;
 
     private float StoredSpeed;
+    private bool BufferedAttack = false;
 
     private GameObject NewExplosion;
 
@@ -24,11 +25,31 @@ public class PlayerCombat : MonoBehaviour
         StoredSpeed = PC.GetPStats.GetMovementSpeed;
     }
 
+    public void Update()
+    {
+        if (BufferedAttack)
+        {
+            Attack();
+        }
+    }
+
     public void Attack()
     {
-        if (PC.GetPStats.GetAttackCooldown) // If on cooldown, exits the function immediately
+        if (PC.GetPStats.GetAttackCooldown)
         {
             return;
+        }
+        if (PC.GetPStats.IsDefensive) // If on cooldown, exits the function immediately
+        {
+            if (!BufferedAttack)
+            {
+                BufferedAttack = true;
+            }
+            return;
+        }
+        if (BufferedAttack)
+        {
+            BufferedAttack = false;
         }
         PC.GetPAnimator.SetTrigger("Attack");
         PC.GetPStats.SetAttackCooldown(true);
@@ -41,7 +62,7 @@ public class PlayerCombat : MonoBehaviour
         if (!PC.GetPStats.IsBursting)
         {
             PC.GetPStats.SetMovementSpeed(SlowSpeed);
-            Invoke("SpeedUp", 0.5f);
+            Invoke("SpeedUp", 0.3f);
         }
     }
 
@@ -74,7 +95,6 @@ public class PlayerCombat : MonoBehaviour
     public void StopAttacking()
     {
         IsAttacking = false;
-        Destroy(NewExplosion);
     }
 
     public bool GetIsAttacking()

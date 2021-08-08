@@ -63,7 +63,7 @@ public class PlayerStats : MonoBehaviour
     //-------------------------------------------------------------
     //Bursting
     bool isBursting = false;
-    private float burstLength = 1f;
+    [SerializeField] private float burstLength = 1f;
     [SerializeField] private float slowOctoCD = 1f;
     [SerializeField] private float burstSlow = 900f;
     public float BURSTCD { get { return burstLength; } }
@@ -93,7 +93,7 @@ public class PlayerStats : MonoBehaviour
     //-------------------------------------------------------------
     //Defensive / stun information
     [SerializeField] bool isDefensive = false;
-    [SerializeField] float defenseCD = 1f; //time invincible
+    [SerializeField] float defenseCD = 0.5f; //time invincible
     [SerializeField] bool isStunned = false;
     [SerializeField] float stunLength = 1f;
     public float DEFENSECD { get { return defenseCD; } }
